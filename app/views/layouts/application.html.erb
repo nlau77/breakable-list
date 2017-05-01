@@ -9,20 +9,22 @@
   </head>
 
   <body>
-    <div class="row">
-      <div class="columns small-6">
+    <header class="header">
+      <div class="row">
+        <div class="columns small-6">
+          <%= link_to "Home", root_path %>
+        </div>
+        <div class="columns small-6 text-right">
+          <% if current_user.present? %>
+            <span><%= link_to current_user.username, user_path(current_user) %></span>
+            <span><%= link_to "Log Out", destroy_user_session_path, :method => :delete %><span></br>
+          <% else %>
+            <span><%=link_to "Sign Up", new_user_registration_path %></span>
+            <span><%= link_to "Log In", new_user_session_path%><span></br>
+          <% end %>
+        </div>
       </div>
-      <div class="columns small-6">
-        <% if current_user.present? %>
-          <span><%= current_user.username %></span>
-          <span><%= link_to "Log Out", destroy_user_session_path, :method => :delete %><span></br>
-        <% else %>
-          <span><%=link_to "Sign Up", new_user_registration_path %></span>
-          <span><%= link_to "Log In", new_user_session_path%><span></br>
-        <% end %>
-      </div>
-
-    </div>
+    </header>
     <%= yield %>
   </body>
 </html>
