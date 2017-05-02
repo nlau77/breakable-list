@@ -3,28 +3,16 @@ require "rails_helper"
 describe Recipeingredient do
   describe "Create recipes and ingredients"
     let!(:recipe) { FactoryGirl.create(:recipe) }
-    let!(:ingredient1) { FactoryGirl.create(:ingredient) }
-    let!(:ingredient2) { FactoryGirl.create(:ingredient, name:"cheese") }
-    # binding.pry
-    context "Create link between recipes and ingredients with recipeingredient" do
-      let!(:recipeingredient1) {
-        Recipeingredient.create(
-          amount: "5lbs",
-          ingredient: ingredient1,
-          recipe: recipe
-        )
-      }
-      let!(:recipeingredient2) {
-        Recipeingredient.create(
-          amount: "three scoops",
-          ingredient: ingredient2,
-          recipe: recipe
-        )
-      }
 
-    end
+    # interaction with factory girl made FactoryGirl.create(:ingredient)
+    # prevented the assocaitons from passing in recipeingredientss
     it "Recipe.ingredients should return a list of ingreidents for the recipe" do
-      binding.pry
+      ingredient1=Ingredient.create(name:"beef")
+      ingredient2=Ingredient.create(name:"curry")
+      Recipeingredient.create(recipe:recipe, ingredient: ingredient1)
+      Recipeingredient.create(recipe:recipe, ingredient: ingredient2)
+      expect(recipe.ingredients.first).to eq(ingredient1)
+      expect(recipe.ingredients.second).to eq(ingredient2)
   end
 
 end
