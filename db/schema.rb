@@ -25,10 +25,10 @@ ActiveRecord::Schema.define(version: 20170502161421) do
 
   create_table "recipeingredients", force: :cascade do |t|
     t.string  "amount"
-    t.integer "recipes_id"
-    t.integer "ingredients_id"
-    t.index ["ingredients_id"], name: "index_recipeingredients_on_ingredients_id", using: :btree
-    t.index ["recipes_id"], name: "index_recipeingredients_on_recipes_id", using: :btree
+    t.integer "recipe_id"
+    t.integer "ingredient_id"
+    t.index ["ingredient_id"], name: "index_recipeingredients_on_ingredient_id", using: :btree
+    t.index ["recipe_id"], name: "index_recipeingredients_on_recipe_id", using: :btree
   end
 
   create_table "recipes", force: :cascade do |t|
