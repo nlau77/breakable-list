@@ -10,13 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170501162849) do
+ActiveRecord::Schema.define(version: 20170502161421) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "groceries", force: :cascade do |t|
     t.string "item", null: false
+  end
+
+  create_table "ingredients", force: :cascade do |t|
+    t.string "name", null: false
+  end
+
+  create_table "recipeingredients", force: :cascade do |t|
+    t.string  "amount"
+    t.integer "recipe_id"
+    t.integer "ingredient_id"
+    t.index ["ingredient_id"], name: "index_recipeingredients_on_ingredient_id", using: :btree
+    t.index ["recipe_id"], name: "index_recipeingredients_on_recipe_id", using: :btree
+  end
+
+  create_table "recipes", force: :cascade do |t|
+    t.string  "name",         null: false
+    t.text    "instructions", null: false
+    t.integer "owner_id"
+    t.index ["owner_id"], name: "index_recipes_on_owner_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
