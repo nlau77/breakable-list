@@ -5,4 +5,10 @@ Rails.application.routes.draw do
   root("static_pages#index")
 
   resources :users, only: [:show]
+
+  resources :users do
+    resources :recipes
+  end
+
+  resources :recipes
 end
