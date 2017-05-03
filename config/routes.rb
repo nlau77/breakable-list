@@ -15,7 +15,10 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :user_recipes, only: [:index, :show, :new, :create]
+      resources :users, only: [:index, :show]
     end
   end
 
+
+    get '*path', to: 'static_pages#index'
 end
