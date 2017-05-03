@@ -2,13 +2,9 @@ class Api::V1::UserRecipesController < ApiController
   skip_before_action :verify_authenticity_token, only: [:create, :update]
 
   def index
-    # currently not hitting user
-
     if current_user.present?
-
       @recipes=Recipe.all
       @user=current_user
-
       render json:
         {
         :recipes => @recipes,
@@ -19,5 +15,4 @@ class Api::V1::UserRecipesController < ApiController
       render json: @recipes
     end
   end
-
 end
