@@ -10,7 +10,7 @@ class UserRecipes extends Component {
   }
   componentDidMount(){
     let recipeId = this.props.params.id;
-    fetch(`api/v1/user_recipes/${recipeId}`, {credentials: 'same-origin'})
+    fetch(`/api/v1/user_recipes/${recipeId}`, {credentials: 'same-origin'})
       .then((response) => response.json())
       .then((responseData) =>{
         this.setState({ recipe : responseData })

@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :groceries
   root("static_pages#index")
-  get '/user_recipe/api/v1/user_recipes/:id', to: 'api/v1/user_recipes#show'
 
   resources :users, only: [:show]
 
@@ -16,14 +15,10 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :user_recipes, only: [:index, :show, :new, :create]
+      resources :users, only: [:index, :show]
     end
   end
 
-    namespace :api do
-      namespace :v1 do
-        resources :users, only: [:index, :show]
-        get '/user_recipe/api/v1/user_recipes/:id', to: 'api/v1/user_recipes#show'
-      end
-    end
 
+    get '*path', to: 'static_pages#index'
 end
