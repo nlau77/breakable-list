@@ -34,7 +34,7 @@ class UserRecipes extends Component {
         userCustomRecipes = this.state.userCustomRecipes.map(recipe =>{
           return (
             <div>
-              <Link to={`/userrecipe/${recipe.id}`}>{recipe.name}</Link>
+              <Link to={`/user_recipe/${recipe.id}`}>{recipe.name}</Link>
             </div>
           )
         })

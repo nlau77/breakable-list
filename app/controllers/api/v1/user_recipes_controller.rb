@@ -3,7 +3,6 @@ class Api::V1::UserRecipesController < ApiController
 
   def index
     if current_user.present?
-      # binding.pry
       user= current_user
       @user_custom_recipes=user.custom_recipes
       render json: @user_custom_recipes
@@ -11,5 +10,15 @@ class Api::V1::UserRecipesController < ApiController
       @recipes= Recipe.all
       render json: @recipes
     end
+  end
+
+  def show
+    binding.pry
+    if current_user.present?
+      id=params[:id]
+      @recipe= Recipe.find(id)
+      render json: @recipe
+    end
+    # binding.pry
   end
 end
