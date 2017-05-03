@@ -1,6 +1,30 @@
+$peagreen: #B4DF37;
+$teal: #77CCA4;
+$offwhite: #F0F0D8;
+$greyblue: #B4DEBE;
+$smoothgrey: #666666;
+
+$lightgreen: #F3FFCF;
+
 .header{
-  background-color: black;
+  background-color: $teal;
   padding-top:5px;
   padding-left:5px;
   padding-right:5px;
+}
+
+.peagreen{
+  background-color: $peagreen;
+}
+.off-white{
+  background-color: $offwhite;
+}
+.grey-blue{
+  background-color: $greyblue;
+}
+.smooth-grey{
+  background-color:$smoothgrey;
+}
+.light-green{
+  background-color:$lightgreen;
 }

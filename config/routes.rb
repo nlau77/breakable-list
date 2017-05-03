@@ -11,4 +11,11 @@ Rails.application.routes.draw do
   end
 
   resources :recipes
+
+  namespace :api do
+    namespace :v1 do
+      resources :user_recipes, only: [:index, :show, :new, :create]
+    end
+  end
+
 end
