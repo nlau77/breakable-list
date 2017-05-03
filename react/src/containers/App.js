@@ -12,6 +12,7 @@ class App extends Component {
   }
 
   render (){
+    // <Route path= '/userrecipe/:id' {RecipeContainer}/>
     return (
       <div>
         <Router history={browserHistory}>

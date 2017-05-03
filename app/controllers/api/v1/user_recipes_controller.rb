@@ -4,13 +4,9 @@ class Api::V1::UserRecipesController < ApiController
   def index
     if current_user.present?
       # binding.pry
-      @recipes=Recipe.all
-      @user=current_user
-      render json:
-        {
-        :recipes => @recipes,
-        :user => @user
-        }
+      user= current_user
+      @user_custom_recipes=user.custom_recipes
+      render json: @user_custom_recipes
     else
       @recipes= Recipe.all
       render json: @recipes

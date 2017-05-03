@@ -23,16 +23,30 @@ class UserRecipes extends Component {
       .then(response => response.json())
       .then(body=> {
         this.setState({
-          userRecipes: body.recipes
+          userCustomRecipes: body
         })
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
   render(){
+    let userCustomRecipes
+      if (this.state.userCustomRecipes){
+        userCustomRecipes = this.state.userCustomRecipes.map(recipe =>{
+          return (
+            <div>
+              <Link to={`/userrecipe/${recipe.id}`}>{recipe.name}</Link>
+            </div>
+          )
+        })
+      }
+
     return(
       <div className="row">
         <div className="small-12 columns text-center">
           <h3>My Recipes</h3>
+          <div>
+            {userCustomRecipes}
+          </div>
         </div>
       </div>
     )
