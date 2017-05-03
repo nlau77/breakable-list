@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Router, Route, Link, browserHistory, IndexRoute } from 'react-router';
 import Layout from '../components/Layout';
+import UserRecipes from '../components/UserRecipes'
 
 
 class App extends Component {
@@ -11,16 +12,13 @@ class App extends Component {
   }
 
   render (){
-    // <Route path = `/users/${this.state.id}` component={Layout}>
-    // <Layout userId={this.state.userId} />
     return (
       <div>
-        <h1>Hello #{this.props.userId}</h1>
         <Router history={browserHistory}>
           <Route path = '/' component= {Layout} >
+            <IndexRoute component= {UserRecipes} />
           </Route>
         </Router>
-
       </div>
     )
   }
