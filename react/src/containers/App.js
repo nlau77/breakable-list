@@ -7,43 +7,21 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      userId: '0'
     }
-    this.getUserData=this.getUserData.bind(this);
   }
 
-  getUserData(){
-    fetch(`api/v1/users`, {credentials: 'same-origin'})
-      .then(response =>{
-        if (response.ok){
-          return response;
-        }else {
-          let errorMessage = `${response.status} (${response.statusText})`,
-          error = new Error(errorMessage);
-          throw(error);
-        }
-      })
-      .then(response => response.json())
-      .then(body=> {
-        this.setState({
-          userId: body.id
-        })
-      })
-      .catch(error => console.error(`Error in fetch: ${error.message}`));
-  }
-  componentDidMount(){
-    this.getUserData()
-  }
   render (){
-    // <div>
-    // <h1>App is working</h1>
-    // </div>
     // <Route path = `/users/${this.state.id}` component={Layout}>
+    // <Layout userId={this.state.userId} />
     return (
-      <Router history={browserHistory}>
-        <Route path = '/' component= {Layout}>
-        </Route>
-      </Router>
+      <div>
+        <h1>Hello #{this.props.userId}</h1>
+        <Router history={browserHistory}>
+          <Route path = '/' component= {Layout} >
+          </Route>
+        </Router>
+
+      </div>
     )
   }
 }

@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
+// import { Router, Route, Link, browserHistory, IndexRoute } from 'react-router';
+import App from './App';
 
 
-class Layout extends Component  {
+class GetUserId extends Component {
   constructor(props){
-    super(props)
+    super(props);
     this.state = {
-      userId : '0'
+      userId: '0'
     }
     this.getUserData=this.getUserData.bind(this);
   }
@@ -33,17 +34,15 @@ class Layout extends Component  {
   componentDidMount(){
     this.getUserData()
   }
+  render (){
+    // <App userId={this.state.userId} />
 
-  render() {
     return (
-      <div className="small-12 small-centered columns">
-        <h3>hello from layout</h3>
-        <div>
-          { this.props.children }
-        </div>
+      <div>
+        < App userId={this.state.userId} />
       </div>
     )
   }
 }
 
-export default Layout;
+export default GetUserId;
