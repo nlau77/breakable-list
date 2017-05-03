@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Router, Route, Link, browserHistory, IndexRoute } from 'react-router';
 import Layout from '../components/Layout';
-import UserRecipes from '../components/UserRecipes'
+import UserRecipes from './UserRecipes'
 
 
 class App extends Component {

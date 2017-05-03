@@ -30,7 +30,7 @@ class UserRecipes extends Component {
   }
   render(){
     return(
-      <div>
+      <div className="row">
         <div className="small-12 columns text-center">
           <h3>My Recipes</h3>
         </div>
