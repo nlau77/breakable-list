@@ -13,12 +13,45 @@ class Api::V1::UserRecipesController < ApiController
   end
 
   def show
-    binding.pry
     if current_user.present?
       id=params[:id]
       @recipe= Recipe.find(id)
-      render json: @recipe
+      @ingredients = @recipe.ingredients
+      render json: {
+        recipe: @recipe,
+        ingredients: @ingredients
+      }
     end
-    # binding.pry
+  end
+
+  def new
+    binding.pry
+  end
+
+  def create
+    body= request.body.read
+    parsed_recipe = JSON.parse(body)
+    name= parsed_recipe["name"]
+    instructions= parsed_recipe["instructions"]
+    ingredients_string=parsed_recipe["ingredients"]
+
+    recipe=Recipe.new(name: name, instructions: instructions)
+    recipe.owner=current_user
+      if recipe.save
+        ingredients = ingredients_string.split(',')
+          ingredients.each do |ingredient|
+            item= Ingredient.find_or_create_by(name: ingredient)
+            Recipeingredient.create(recipe: recipe, ingredient: item)
+          end
+        @recipe=recipe
+        render json: @recipe
+      else
+        render json: { messages: recipe.errors.full_messages }
+      end
+
+  end
+
+  def update
+    binding.pry
   end
 end

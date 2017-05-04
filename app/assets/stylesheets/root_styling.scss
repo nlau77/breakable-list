@@ -3,14 +3,30 @@ $teal: #77CCA4;
 $offwhite: #F0F0D8;
 $greyblue: #B4DEBE;
 $smoothgrey: #666666;
-
+$bluegreen: #0E8D94;
 $lightgreen: #F3FFCF;
+@import url('https://fonts.googleapis.com/css?family=Pinyon+Script|Roboto');
+// font-family: 'Pinyon Script', cursive;
+// font-family: 'Roboto', sans-serif;
+
+.title{
+  font-family: 'Pinyon Script', cursive;
+}
 
 .header{
-  background-color: $teal;
+  background-color: $greyblue;
   padding-top:5px;
   padding-left:5px;
   padding-right:5px;
+}
+
+.site-background{
+  background-color: $offwhite;
+  color: $smoothgrey
+}
+
+a {
+  color: $bluegreen;
 }
 
 .peagreen{

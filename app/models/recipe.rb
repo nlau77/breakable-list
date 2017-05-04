@@ -3,4 +3,6 @@ class Recipe < ApplicationRecord
 
   has_many :ingredients, through: :recipeingredients
   has_many :recipeingredients
+
+  validates :name, presence: true
 end
