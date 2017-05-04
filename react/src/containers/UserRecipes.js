@@ -10,7 +10,7 @@ class UserRecipes extends Component {
   }
 
   componentDidMount(){
-    fetch(`api/v1/user_recipes`, {credentials: 'same-origin'})
+    fetch(`/api/v1/user_recipes`, {credentials: 'same-origin'})
       .then(response =>{
         if (response.ok){
           return response;

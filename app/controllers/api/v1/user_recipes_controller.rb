@@ -13,11 +13,14 @@ class Api::V1::UserRecipesController < ApiController
   end
 
   def show
-    binding.pry
     if current_user.present?
       id=params[:id]
       @recipe= Recipe.find(id)
-      render json: @recipe
+      @ingredients = @recipe.ingredients
+      render json: {
+        recipe: @recipe,
+        ingredients: @ingredients
+      }
     end
     # binding.pry
   end

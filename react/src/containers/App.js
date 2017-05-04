@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Router, Route, Link, browserHistory, IndexRoute } from 'react-router';
 import Layout from '../components/Layout';
-import UserRecipes from './UserRecipes'
-import RecipeContainer from './RecipeContainer'
+import UserRecipes from './UserRecipes';
+import RecipeContainer from './RecipeContainer';
 
 
 class App extends Component {

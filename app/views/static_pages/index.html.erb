@@ -1,22 +1,19 @@
+<div class='site-background'>
  <div class="row">
-  <div class="columns text-center">
-    <h3>Make a List!</h3>
+  <div class="columns text-center title">
+      <h3 class='title'>Make a List!</h3>
+  </div>
+  </div>
+  <div class="row">
+    <% if current_user.present? %>
+        <div id="app" class="react-components">
+        </div>
+      <% else %>
+        <h1>Please Log in first!</h1>
+    <% end %>
+  </div>
+  <div class="">
+    <%= link_to "test api", api_v1_user_recipes_path %></br>
+    <%= link_to "user api", api_v1_users_path %>
   </div>
 </div>
-
-<!-- <div class="row">
-  <div class="columns text-center">
-    <h3>Search for some recipes!</h3>
-  </div>
-</div> -->
-
-<div class="">
-  <%= link_to "test api", api_v1_user_recipes_path %></br>
-  <%= link_to "user api", api_v1_users_path %>
-</div>
-<% if current_user.present? %>
-    <div id="app">
-    </div>
-  <% else %>
-    <h1>Please Log in first!</h1>
-<% end %>
