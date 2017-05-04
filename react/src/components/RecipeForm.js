@@ -10,8 +10,9 @@ const RecipeForm = props => {
       <label>Instructions:</label>
       <input type='text' value={props.instructions} onChange={props.handleInstructionsChange}/>
 
-      <label>Ingredients: <span>(please seperate ingredients with a comma)</span>: </label>
+      <label>Ingredients: </label>
       <input type='text' value={props.ingredients} onChange={props.handleIngredientsChange}/>
+      <span>(please seperate ingredients with a comma, example cheese, mushrooms, onions)</span>
 
       <div className="rows">
         <div className="offset-small-6 columns">

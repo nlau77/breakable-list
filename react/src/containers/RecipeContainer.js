@@ -15,7 +15,6 @@ class UserRecipes extends Component {
     fetch(`/api/v1/user_recipes/${recipeId}`, {credentials: 'same-origin'})
       .then((response) => response.json())
       .then((responseData) =>{
-        // debugger
         this.setState({
           recipe : responseData.recipe,
           ingredients : responseData.ingredients

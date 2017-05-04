@@ -43,6 +43,10 @@ class Api::V1::UserRecipesController < ApiController
             item= Ingredient.find_or_create_by(name: ingredient)
             Recipeingredient.create(recipe: recipe, ingredient: item)
           end
+        @recipe=recipe
+        render json: @recipe
+      else
+        render json: { messages: recipe.errors.full_messages }
       end
 
   end

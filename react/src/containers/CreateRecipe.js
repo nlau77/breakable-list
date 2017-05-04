@@ -8,7 +8,8 @@ class CreateRecipe extends Component {
     this.state = {
       name: '',
       instructions: '',
-      ingredients: ''
+      ingredients: '',
+      messages: []
     }
     this.handleNameChange = this.handleNameChange.bind(this)
     this.handleInstructionsChange = this.handleInstructionsChange.bind(this)
@@ -40,13 +41,29 @@ class CreateRecipe extends Component {
     }
 
     fetch('/api/v1/user_recipes', { method:'POST', credentials: 'same-origin', body: JSON.stringify(recipeBody) })
-    console.log("the submit button worked!")
+    .then(response => {
+      let parsed = response.json();
+      return parsed;
+    }).then(command =>{
+      if(command.messages){
+        this.setState({ messages: command.messages })
+      }else {
+        window.location=`/user_recipe/${command.id}`
+      }
+    })
   }
 
   render(){
+    let errors = this.state.messages.map (error =>{
+      return (
+        <p className="error-message text-center">{error}</p>
+      )
+    })
+
     return(
       <div className="rows">
         <h3 className="text-center">Submit A Recipe!</h3>
+          {errors}
         <div className="columns small-8 small-centered">
           <RecipeForm
           handleNameChange={this.handleNameChange}
