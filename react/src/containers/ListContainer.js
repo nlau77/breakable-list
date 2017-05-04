@@ -6,9 +6,16 @@ class ListContainer extends Component {
   constructor(props){
     super(props);
     this.state = {
-      userRecipes:[]
+      userRecipes:[],
+      selectedRecipes:[]
     }
+  this.handleClickRecipe=this.handleClickRecipe.bind(this)
   }
+
+  handleClickRecipe(id){
+    console.log("selected id" + id)
+  }
+
 
   componentDidMount(){
     fetch(`/api/v1/user_recipes`, {credentials: 'same-origin'})
@@ -32,9 +39,15 @@ class ListContainer extends Component {
   render(){
     let userRecipes;
       userRecipes = this.state.userRecipes.map(recipe =>{
+        let handleClick = () => this.handleClickRecipe(recipe.id)
         return (
           <div>
-            <ListTile />
+            <ListTile
+              key={recipe.id}
+              id={recipe.id}
+              name={recipe.name}
+              handleClick={handleClick}
+            />
           </div>
         )
       })
