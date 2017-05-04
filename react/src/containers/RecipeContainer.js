@@ -23,14 +23,27 @@ class UserRecipes extends Component {
       })
   }
   render(){
+    let ingredientList = this.state.ingredients.map(ingredient => {
+      return(
+        <IngredientTile
+          key={ingredient.id}
+          name={ingredient.name}
+          />
+      )
+    })
 
     return (
       <div className="rows">
+        <h3 className="text-center">{this.state.recipe.name} </h3>
         <div className="small-4 medium-6 columns">
-          <h3 className="text-center">{this.state.recipe.name} </h3>
+          <h5 className="">Instructions</h5>
           <text>{this.state.recipe.instructions}</text>
         </div>
-        <div className= "small-4 medium-6 columns">
+        <div className= "small-3 medium-6 columns">
+          <h5>Ingredients</h5>
+          <ul>
+          {ingredientList}
+          </ul>
         </div>
       </div>
     )
