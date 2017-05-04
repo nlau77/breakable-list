@@ -3,13 +3,14 @@ import { Router, Route, Link, browserHistory, IndexRoute } from 'react-router';
 import Layout from '../components/Layout';
 import UserRecipes from './UserRecipes';
 import RecipeContainer from './RecipeContainer';
-import CreateRecipeForm from './CreateRecipeForm'
+import CreateRecipe from './CreateRecipe'
 
 
 class App extends Component {
   constructor(props){
     super(props);
     this.state = {
+    
     }
   }
 
@@ -20,7 +21,7 @@ class App extends Component {
           <Route path = '/' component= {Layout} >
             <IndexRoute component= {UserRecipes} />
             <Route path='/user_recipe/:id' component= {RecipeContainer} />
-            <Route path='/user_recipes/new'component = {CreateRecipeForm} />
+            <Route path='/user_recipes/new'component = {CreateRecipe} />
           </Route>
         </Router>
       </div>
