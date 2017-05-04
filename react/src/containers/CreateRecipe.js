@@ -33,7 +33,14 @@ class CreateRecipe extends Component {
 
   handleSubmit(event){
     event.preventDefault()
+    let recipeBody = {
+      name:this.state.name,
+      instructions: this.state.instructions,
+      ingredients: this.state.ingredients
+    }
 
+    fetch('/api/v1/user_recipes', { method:'POST', credentials: 'same-origin', body: JSON.stringify(recipeBody) })
+    console.log("the submit button worked!")
   }
 
   render(){
@@ -48,6 +55,7 @@ class CreateRecipe extends Component {
           name={this.state.name}
           instructions={this.state.instructions}
           ingredients={this.state.ingredients}
+          handleSubmit={this.handleSubmit}
           />
         </div>
       </div>

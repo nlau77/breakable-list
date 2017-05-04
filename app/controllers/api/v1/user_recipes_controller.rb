@@ -29,6 +29,25 @@ class Api::V1::UserRecipesController < ApiController
   end
 
   def create
+    body= request.body.read
+    parsed_recipe = JSON.parse(body)
+    name= parsed_recipe["name"]
+    instructions= parsed_recipe["instructions"]
+    ingredients_string=parsed_recipe["ingredients"]
+
+    recipe=Recipe.new(name: name, instructions: instructions)
+    recipe.owner=current_user
+      if recipe.save
+        ingredients = ingredients_string.split(',')
+          ingredients.each do |ingredient|
+            item= Ingredient.find_or_create_by(name: ingredient)
+            Recipeingredient.create(recipe: recipe, ingredient: item)
+          end
+      end
+
+  end
+
+  def update
     binding.pry
   end
 end

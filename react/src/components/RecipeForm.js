@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 
 const RecipeForm = props => {
   return (
-    <form >
+    <form onSubmit={props.handleSubmit}>
       <label>Name:</label>
       <input type='text' value={props.name} onChange={props.handleNameChange}/>
 
