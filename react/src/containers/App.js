@@ -3,6 +3,7 @@ import { Router, Route, Link, browserHistory, IndexRoute } from 'react-router';
 import Layout from '../components/Layout';
 import UserRecipes from './UserRecipes';
 import RecipeContainer from './RecipeContainer';
+import CreateRecipeForm from './CreateRecipeForm'
 
 
 class App extends Component {
@@ -19,6 +20,7 @@ class App extends Component {
           <Route path = '/' component= {Layout} >
             <IndexRoute component= {UserRecipes} />
             <Route path='/user_recipe/:id' component= {RecipeContainer} />
+            <Route path='/user_recipes/new'component = {CreateRecipeForm} />
           </Route>
         </Router>
       </div>

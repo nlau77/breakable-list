@@ -22,6 +22,13 @@ class Api::V1::UserRecipesController < ApiController
         ingredients: @ingredients
       }
     end
-    # binding.pry
+  end
+
+  def new
+    binding.pry
+  end
+
+  def create
+    binding.pry
   end
 end
