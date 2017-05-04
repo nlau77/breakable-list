@@ -6,8 +6,8 @@ const Layout = (props) => {
    <div className="rows">
       <div className="small-12 small-centered columns layout-bar">
          <Link className='layout-button' to='/'> My Recipes</Link>
-         <Link className='layout-button' to='/user_recipes/new'> Create Recipe</Link>
-         <Link className='layout-button' to='/'> My Grocery Lists</Link>
+         <Link className='layout-button' to='/user_recipes/new'> Submit Recipe</Link>
+         <Link className='layout-button' to='/user_lists/new'> Make List</Link>
       </div>
       <div className="rows">
         { props.children }

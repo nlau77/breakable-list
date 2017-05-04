@@ -1,11 +1,12 @@
 import React, { Component }  from 'react';
 import { Link } from 'react-router';
+import ListTile from '../components/ListTile'
 
-class UserRecipes extends Component {
-  constructor(props) {
+class ListContainer extends Component {
+  constructor(props){
     super(props);
     this.state = {
-      userCustomRecipes:[]
+      userRecipes:[]
     }
   }
 
@@ -23,27 +24,30 @@ class UserRecipes extends Component {
       .then(response => response.json())
       .then(body=> {
         this.setState({
-          userCustomRecipes: body
+          userRecipes: body
         })
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
   render(){
-    let userCustomRecipes
-      userCustomRecipes = this.state.userCustomRecipes.map(recipe =>{
+    let userRecipes;
+      userRecipes = this.state.userRecipes.map(recipe =>{
         return (
           <div>
-            <Link to={`/user_recipe/${recipe.id}`}>{recipe.name}</Link>
+            <ListTile />
           </div>
         )
       })
 
     return(
       <div className="row">
+        <div className="test-div text-center">
+        </div>
+
         <div className="small-12 columns text-center">
-          <h3>My Recipes</h3>
+          <h3>Select Your Recipes </h3>
           <div>
-            {userCustomRecipes}
+            {userRecipes}
           </div>
         </div>
       </div>
@@ -51,4 +55,4 @@ class UserRecipes extends Component {
   }
 }
 
-export default UserRecipes
+export default ListContainer;
