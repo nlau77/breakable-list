@@ -39,8 +39,26 @@ class ListContainer extends Component {
   }
 
   handleSaveList(event){
-    console.log("trigger the save list")
+    event.preventDefault()
+    let listBody = {
+      recipes:this.state.selectedRecipes,
+      title:this.state.listTitle
+    }
+
+    fetch('/api/v1/user_lists', { method:'POST', credentials: 'same-origin', body: JSON.stringify(listBody) })
+    .then(response => {
+      let parsed = response.json();
+      return parsed;
+    }).then(command =>{
+      if(command.messages){
+        this.setState({ messages: command.messages })
+      }else {
+        console.log("it got to here")
+        // window.location=`/user_recipe/${command.id}`
+      }
+    })
   }
+
   componentDidMount(){
     fetch(`/api/v1/user_recipes`, {credentials: 'same-origin'})
       .then(response =>{

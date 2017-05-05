@@ -25,7 +25,6 @@ class Api::V1::UserRecipesController < ApiController
   end
 
   def new
-    binding.pry
   end
 
   def create
