@@ -40,7 +40,7 @@ class Api::V1::UserRecipesController < ApiController
       if recipe.save
         ingredients = ingredients_string.split(',')
           ingredients.each do |ingredient|
-            item= Ingredient.find_or_create_by(name: ingredient)
+            item= Ingredient.find_or_create_by(name: ingredient.downcase)
             Recipeingredient.create(recipe: recipe, ingredient: item)
           end
         @recipe=recipe
