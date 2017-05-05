@@ -10,8 +10,9 @@ class ListContainer extends Component {
       selectedRecipes:[],
       listTitle: ""
     }
-  this.handleClickRecipe=this.handleClickRecipe.bind(this)
-  this.handleTitleChange=this.handleTitleChange.bind(this)
+  this.handleClickRecipe = this.handleClickRecipe.bind(this)
+  this.handleTitleChange = this.handleTitleChange.bind(this)
+  this.handleSaveList = this.handleSaveList.bind(this)
   }
 
   handleClickRecipe(id){
@@ -35,6 +36,10 @@ class ListContainer extends Component {
     let newTitle= event.target.value
     this.setState({ listTitle: newTitle})
     console.log(this.state.listTitle)
+  }
+
+  handleSaveList(event){
+    console.log("trigger the save list")
   }
   componentDidMount(){
     fetch(`/api/v1/user_recipes`, {credentials: 'same-origin'})
@@ -93,7 +98,7 @@ class ListContainer extends Component {
           </div>
         </div>
         <div>
-          <button>Save List!</button>
+          <button onClick={this.handleSaveList}>Save List!</button>
         </div>
       </div>
     )
