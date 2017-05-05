@@ -13,7 +13,7 @@ class ListContainer extends Component {
   }
 
   handleClickRecipe(id){
-    console.log("selected id" + id)
+    console.log("selected id: " + id)
   }
 
 
@@ -41,7 +41,7 @@ class ListContainer extends Component {
       userRecipes = this.state.userRecipes.map(recipe =>{
         let handleClick = () => this.handleClickRecipe(recipe.id)
         return (
-          <div>
+          <div className="small-12 large-3 medium-4 columns">
             <ListTile
               key={recipe.id}
               id={recipe.id}
@@ -57,7 +57,7 @@ class ListContainer extends Component {
         <div className="test-div text-center">
         </div>
 
-        <div className="small-12 columns text-center">
+        <div className="text-center">
           <h3>Select Your Recipes </h3>
           <div>
             {userRecipes}

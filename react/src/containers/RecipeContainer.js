@@ -34,14 +34,14 @@ class UserRecipes extends Component {
     return (
       <div className="rows">
         <h3 className="text-center">{this.state.recipe.name} </h3>
-        <div className="small-4 medium-6 columns">
+        <div className="small-12 medium-6 columns">
           <h5 className="recipe-header">Instructions</h5>
           <text>{this.state.recipe.instructions}</text>
         </div>
-        <div className= "small-3 medium-6 columns">
+        <div className= "small-12 medium-6 columns">
           <h5 className="recipe-header">Ingredients</h5>
           <ul>
-          {ingredientList}
+            {ingredientList}
           </ul>
         </div>
       </div>
