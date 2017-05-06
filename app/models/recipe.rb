@@ -6,4 +6,6 @@ class Recipe < ApplicationRecord
 
   validates :name, presence: true
   validates :instructions, presence: true
+
+  has_many :grocerylists 
 end

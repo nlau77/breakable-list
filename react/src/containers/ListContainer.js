@@ -22,9 +22,7 @@ class ListContainer extends Component {
         let indexOfItem = updateSelectedRecipes.indexOf(id)
         updateSelectedRecipes.splice(indexOfItem, 1)
         this.setState({ selectedRecipes: updateSelectedRecipes})
-        // console.log("true")
       }else{
-        // console.log("false")
         updateSelectedRecipes.push(id)
         this.setState({ selectedRecipes: updateSelectedRecipes})
       }
@@ -54,7 +52,7 @@ class ListContainer extends Component {
         this.setState({ messages: command.messages })
       }else {
         console.log("it got to here")
-        // window.location=`/user_recipe/${command.id}`
+        window.location=`/user_list`
       }
     })
   }
