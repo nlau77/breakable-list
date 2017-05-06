@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
+import IngredientTile from '../components/IngredientTile'
 // probably import some tile
 
 class DisplayList extends Component {
@@ -7,7 +8,8 @@ class DisplayList extends Component {
     super(props)
     this.state ={
       recipe: {},
-      ingredients: []
+      ingredients: [],
+      selected_list: ""
     }
   }
 
@@ -26,20 +28,24 @@ class DisplayList extends Component {
   render(){
     let ingredientsList = this.state.ingredients.map(ingredient => {
       return(
-        <li>{ingredient.name}</li>
+        <IngredientTile
+          key={ingredient.id}
+          name={ingredient.name}
+        />
       )
     })
 
     return(
-      <div>
-        <h5 className="text-center">Grocery List</h5>
-        <div className="row">
-        <h3>{this.state.recipe.title}</h3>
-          <div className="columns small-12 medium-7 large-5" >
+      <div className="row">
+        <h3 className="text-center">Grocery List</h3>
+        <div className="columns small-12 medium-6">
+          <h5>{this.state.recipe.title}</h5>
             <ul>
               {ingredientsList}
             </ul>
-          </div>
+        </div>
+        <div>
+          <h5>place holder text</h5>
         </div>
       </div>
     )
