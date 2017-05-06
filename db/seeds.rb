@@ -9,6 +9,7 @@ User.destroy_all
 Recipe.destroy_all
 Ingredient.destroy_all
 Recipeingredient.destroy_all
+Userlist.destroy_all
 
 user1= User.create(username: "user", email: "user@gmail.com", password: "123456")
 
@@ -33,3 +34,6 @@ ingredient_array=["beef", "curry", "peas", "brocolli"]
 ingredient_array.each do |ingredient|
   Ingredient.create(name: ingredient)
 end
+
+Userlist.create(title:"heres a list", user: user1)
+Userlist.create(title:"another list", user: user1)

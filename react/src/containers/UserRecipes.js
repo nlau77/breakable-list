@@ -5,7 +5,7 @@ class UserRecipes extends Component {
   constructor(props) {
     super(props);
     this.state = {
-
+      userCustomRecipes:[]
     }
   }
 
@@ -30,19 +30,17 @@ class UserRecipes extends Component {
   }
   render(){
     let userCustomRecipes
-      if (this.state.userCustomRecipes){
-        userCustomRecipes = this.state.userCustomRecipes.map(recipe =>{
-          return (
-            <div>
-              <Link to={`/user_recipe/${recipe.id}`}>{recipe.name}</Link>
-            </div>
-          )
-        })
-      }
+      userCustomRecipes = this.state.userCustomRecipes.map(recipe =>{
+        return (
+          <div className="small-12 large-3 medium-4 columns">
+            <Link to={`/user_recipe/${recipe.id}`}>{recipe.name}</Link>
+          </div>
+        )
+      })
 
     return(
       <div className="row">
-        <div className="small-12 columns text-center">
+        <div className="text-center">
           <h3>My Recipes</h3>
           <div>
             {userCustomRecipes}
