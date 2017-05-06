@@ -1,8 +1,12 @@
 class Api::V1::UserListsController < ApiController
   skip_before_action :verify_authenticity_token
 
+  def index
+
+  end
+
   def show
-    # binding.pry
+    binding.pry
   end
 
   def update

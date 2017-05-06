@@ -8,6 +8,7 @@ const Layout = (props) => {
          <Link className='layout-button' to='/'> My Recipes</Link>
          <Link className='layout-button' to='/user_recipes/new'> Submit Recipe</Link>
          <Link className='layout-button' to='/user_lists/new'> Make List</Link>
+         <Link className='layout-button' to='/user_list'> See My link</Link>
       </div>
       <div className="rows">
         { props.children }

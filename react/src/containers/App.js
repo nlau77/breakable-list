@@ -5,6 +5,7 @@ import UserRecipes from './UserRecipes';
 import RecipeContainer from './RecipeContainer';
 import CreateRecipe from './CreateRecipe';
 import ListContainer from './ListContainer';
+import DisplayList from './DisplayList';
 
 
 class App extends Component {
@@ -24,6 +25,7 @@ class App extends Component {
             <Route path='/user_recipe/:id' component= {RecipeContainer} />
             <Route path='/user_recipes/new'component = {CreateRecipe} />
             <Route path='/user_lists/new' component = {ListContainer} />
+            <Route path='/user_list' component = {DisplayList} />
           </Route>
         </Router>
       </div>
