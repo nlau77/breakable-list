@@ -22,9 +22,7 @@ class ListContainer extends Component {
         let indexOfItem = updateSelectedRecipes.indexOf(id)
         updateSelectedRecipes.splice(indexOfItem, 1)
         this.setState({ selectedRecipes: updateSelectedRecipes})
-        // console.log("true")
       }else{
-        // console.log("false")
         updateSelectedRecipes.push(id)
         this.setState({ selectedRecipes: updateSelectedRecipes})
       }
