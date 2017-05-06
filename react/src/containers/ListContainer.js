@@ -54,7 +54,7 @@ class ListContainer extends Component {
         this.setState({ messages: command.messages })
       }else {
         console.log("it got to here")
-        // window.location=`/user_recipe/${command.id}`
+        window.location=`/user_list/${command.id}`
       }
     })
   }

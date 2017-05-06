@@ -28,7 +28,7 @@ class Api::V1::UserListsController < ApiController
         Grocerylist.create(userlist: newList, recipe: recipe)
       end
       @newList = newList
-      render json @newList
+      render json: @newList
     end
   end
 end
