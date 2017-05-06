@@ -16,6 +16,11 @@ $bluegreen: #0E8D94;
   border-radius: 10px;
 }
 
-.recipe-padding{
-  width: 8em;
+.recipe-list{
+  list-style: none;
+}
+
+.list-header{
+  border-bottom: 1px solid $greyblue;
+  // width: 10em;
 }

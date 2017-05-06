@@ -39,13 +39,13 @@ class DisplayList extends Component {
       <div className="row">
         <h3 className="text-center">Grocery List</h3>
         <div className="text-center columns small-12 medium-6">
-          <h5>{this.state.recipe.title}</h5>
-            <ul>
+          <h5 className="list-header">{this.state.recipe.title}</h5>
+            <ul className="recipe-list">
               {ingredientsList}
             </ul>
         </div>
         <div className=" columns small-12 medium-6 large- 4">
-          <h5>place holder text</h5>
+          <h5 className="list-header">place holder text</h5>
         </div>
       </div>
     )
