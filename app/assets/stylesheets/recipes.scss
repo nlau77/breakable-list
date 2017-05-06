@@ -1,4 +1,5 @@
 $greyblue: #B4DEBE;
+$bluegreen: #0E8D94;
 
 .recipe-header{
   border-bottom: 1px solid black;
@@ -10,9 +11,8 @@ $greyblue: #B4DEBE;
 }
 
 .selected-recipe{
-  color: green;
+  color: $bluegreen;
   background: $greyblue;
-  border: solid 1px black;
   border-radius: 10px;
 }
 
