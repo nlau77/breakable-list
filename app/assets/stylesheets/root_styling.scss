@@ -9,6 +9,11 @@ $lightgreen: #F3FFCF;
 // font-family: 'Pinyon Script', cursive;
 // font-family: 'Roboto', sans-serif;
 
+body{
+  background-color: $offwhite;
+  color: $smoothgrey;
+}
+
 .title{
   font-family: 'Pinyon Script', cursive;
 }
@@ -22,7 +27,7 @@ $lightgreen: #F3FFCF;
 
 .site-background{
   background-color: $offwhite;
-  color: $smoothgrey
+  color: $smoothgrey;
 }
 
 a {
