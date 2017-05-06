@@ -22,6 +22,13 @@ class Api::V1::UserListsController < ApiController
         list_title = "You forgot to add a title"
       end
       newList = Userlist.create(title: list_title, user: user)
+
+      recipe_ids.each do |recipe_id|
+        recipe = Recipe.find(recipe_id)
+        Grocerylist.create(userlist: newList, recipe: recipe)
+      end
+      @newList = newList
+      render json @newList
     end
   end
 end
