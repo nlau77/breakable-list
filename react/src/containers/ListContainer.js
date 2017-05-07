@@ -107,13 +107,13 @@ class ListContainer extends Component {
             </div>
           </div>
         </div>
-        <div className="row">
-          <div className="small-12 medium-6 columns text-center">
-            <h7>Give your list a title(optional)</h7>
+        <div className="rows">
+          <div className="small-12 medium-6 large-6 small-offset-4 medium-offset-4 large-offset-4 columns">
+            <p>Give your list a title (optional)</p>
             <input onChange={this.handleTitleChange} />
           </div>
         </div>
-        <div>
+        <div className="small-12 medium-6 large-6 small-offset-4 medium-offset-4 large-offset-4 columns">
           <button onClick={this.handleSaveList}>Save List!</button>
         </div>
       </div>
