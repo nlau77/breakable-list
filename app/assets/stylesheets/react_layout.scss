@@ -15,8 +15,9 @@
 .header-image{
   background-blend-mode: screen;
   background-image: image-url("pizza.jpg");
-  height: 10em;
+  height: 20em;
   margin-bottom: 1em;
+  zoom: 30%;
 }
 
 .image-row{
@@ -24,7 +25,5 @@
 }
 
 .react-bottom-padding{
-  padding: 3em;
-  margin: 5em;
   height: 3em
 }
