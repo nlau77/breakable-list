@@ -40,9 +40,18 @@ class UserRecipes extends Component {
         </div>
         <div className= "small-12 medium-6 columns">
           <h5 className="recipe-header">Ingredients</h5>
-          <ul>
-            {ingredientList}
-          </ul>
+          <div className="rows">
+            <div className="columns small-6">
+              <ul>
+                {ingredientList}
+              </ul>
+             </div>
+             <div className="columns small-6">
+              <ul>
+                {ingredientList}
+              </ul>
+             </div>
+           </div>
         </div>
       </div>
     )

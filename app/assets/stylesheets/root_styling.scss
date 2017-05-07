@@ -18,11 +18,17 @@ body{
   font-family: 'Pinyon Script', cursive;
 }
 
+.app-title{
+  font-family: 'Pinyon Script', cursive;
+  font-size: 2em;
+}
+
 .header{
   background-color: $greyblue;
   padding-top:5px;
   padding-left:5px;
   padding-right:5px;
+  height: 3.5em;
 }
 
 .site-background{

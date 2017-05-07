@@ -1,15 +1,14 @@
 <div class='site-background'>
- <div class="row">
-  <div class="columns text-center title">
-      <h3 class='title'>Make a List!</h3>
-  </div>
-  </div>
+ <!-- <div class="row">
+    <div class="columns text-center title header-image">
+    </div>
+  </div> -->
   <div class="row">
     <% if current_user.present? %>
         <div id="app" class="react-components">
         </div>
       <% else %>
-        <h1>Please Log in first!</h1>
+        <h3 class="text-center">Please Log in first!</h3>
     <% end %>
   </div>
 </div>

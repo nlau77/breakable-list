@@ -11,3 +11,20 @@
   margin-top: 2em;
   margin-bottom: 2em;
 }
+
+.header-image{
+  background-blend-mode: screen;
+  background-image: image-url("pizza.jpg");
+  height: 10em;
+  margin-bottom: 1em;
+}
+
+.image-row{
+  margin-top: 0
+}
+
+.react-bottom-padding{
+  padding: 3em;
+  margin: 5em;
+  height: 3em
+}
