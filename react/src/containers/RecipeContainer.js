@@ -4,6 +4,7 @@ import IngredientTile from '../components/IngredientTile'
 import IngredientContainer from './IngredientContainer'
 import AmountTile from '../components/AmountTile'
 import InstructionTile from '../components/InstructionTile'
+import InstructionForm from '../components/InstructionForm'
 
 class UserRecipes extends Component {
   constructor(props) {
@@ -12,14 +13,27 @@ class UserRecipes extends Component {
       recipe: {},
       ingredients: [],
       recipeAmounts: [],
-      instructions:[]
+      instructions:[],
+      newInstruction: ""
     }
-    this.handleRerender=this.handleRerender.bind(this)
+    this.handleStepChange=this.handleStepChange.bind(this)
+    this.handleInstructionSubmit=this.handleInstructionSubmit.bind(this)
   }
 
-  handleRerender(){
-    console.log("hitting the rerender")
-    this.setState(this.state);
+  handleStepChange(event){
+    let updatedStep = event.target.value
+    this.setState({ newInstruction : updatedStep })
+  }
+
+  handleInstructionSubmit(event){
+    event.preventDefault();
+    let recipeId = this.props.params.id;
+    let instructionBody={
+      recipeId: recipeId,
+      instruction: this.state.newInstruction
+    }
+    console.log(this.state.newInstruction + "cheese")
+    console.log("handle instruction submit")
   }
 
   componentDidMount(){
@@ -36,7 +50,6 @@ class UserRecipes extends Component {
       })
   }
   render(){
-
     let instructionList = this.state.instructions.map(instruction =>{
       return(
         <InstructionTile
@@ -45,7 +58,6 @@ class UserRecipes extends Component {
         />
       )
     })
-
     let ingredientList = this.state.ingredients.map(ingredient => {
       return(
         <IngredientTile
@@ -54,7 +66,6 @@ class UserRecipes extends Component {
           />
       )
     })
-
     let amountList = this.state.recipeAmounts.map(ingredient =>{
       return(
         <AmountTile
@@ -70,13 +81,21 @@ class UserRecipes extends Component {
         <div className="small-12 medium-6 columns">
           <h5 className="recipe-header">Instructions</h5>
           <div className="rows">
-            <div className="columns small-6">
+            <div className="columns small-12">
               <ul>
                 {instructionList}
               </ul>
             </div>
+            <div>
+              <InstructionForm
+                handleStepChange={this.handleStepChange}
+                handleInstructionSubmit={this.handleInstructionSubmit}
+                newInstruction={this.state.newInstruction}
+                />
+            </div>
           </div>
         </div>
+
         <div className= "small-12 medium-6 columns">
           <h5 className="recipe-header">Ingredients</h5>
           <div className="rows">
@@ -93,6 +112,7 @@ class UserRecipes extends Component {
              </div>
            </div>
          </div>
+
          <div className="rows">
            <div className="small-6 columns">
             <h4>place holder</h4>

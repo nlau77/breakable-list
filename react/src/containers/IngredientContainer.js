@@ -33,7 +33,7 @@ class IngredientContainer extends Component {
     }
     fetch('/api/v1/ingredients', { method:'POST', credentials: 'same-origin', body: JSON.stringify(ingredientBody) })
     .then((response)=>{
-      window.location=`/user_recipe/${this.props.recipeId}`
+      // window.location=`/user_recipe/${this.props.recipeId}`
     })
     console.log("you hit the submit button")
   }
