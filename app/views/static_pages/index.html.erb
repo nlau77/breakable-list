@@ -9,6 +9,10 @@
         </div>
       <% else %>
         <h3 class="text-center">Please Log in first!</h3>
+        <div class="text-center">
+          <span><%=link_to "Sign Up", new_user_registration_path %></span> |
+          <span><%= link_to "Log In", new_user_session_path%><span></br>
+        </div>
     <% end %>
   </div>
 </div>
