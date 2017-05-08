@@ -13,16 +13,15 @@
   <body>
     <header class="header">
       <div class="row">
-        <div class="columns small-3 medium-6">
-          <% if current_user.present? %>
-            <span><%= link_to "Hi #{current_user.username}!", user_path(current_user) %></span>
-          <% end %>
+        <div class="columns small-7 medium-6">
+            <span class="app-title">Grocery Picker</span>
         </div>
-        <div class="columns small-3 medium-6 text-right">
+        <div class="columns small-5 medium-6 text-right">
           <% if current_user.present? %>
+            <span><%= link_to "#{current_user.username} | ", user_path(current_user) %></span>
             <span><%= link_to "Log Out", destroy_user_session_path, :method => :delete %><span></br>
           <% else %>
-            <span><%=link_to "Sign Up", new_user_registration_path %></span>
+            <span><%=link_to "Sign Up", new_user_registration_path %></span> |
             <span><%= link_to "Log In", new_user_session_path%><span></br>
           <% end %>
         </div>

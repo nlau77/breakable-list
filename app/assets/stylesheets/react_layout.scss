@@ -11,3 +11,19 @@
   margin-top: 2em;
   margin-bottom: 2em;
 }
+
+.header-image{
+  background-blend-mode: screen;
+  background-image: image-url("fruits.jpg");
+  height: 20em;
+  margin-bottom: 1em;
+  zoom: 10%;
+}
+
+.image-row{
+  margin-top: 0
+}
+
+.react-bottom-padding{
+  height: 3em
+}
