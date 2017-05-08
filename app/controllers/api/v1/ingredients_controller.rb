@@ -14,7 +14,7 @@ class Api::V1::IngredientsController < ApiController
     else
       # empty string
     end
-    # binding.pry
+
   end
 
 end

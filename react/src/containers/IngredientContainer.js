@@ -16,13 +16,11 @@ class IngredientContainer extends Component {
   handleAmountChange(event){
     let newAmount = event.target.value
     this.setState({ amount : newAmount })
-    console.log(this.state.amount)
   }
 
   handleItemChange(event){
       let newIngredient = event.target.value
       this.setState({ ingredient: newIngredient})
-      console.log(this.state.ingredient)
   }
 
   handleSubmit(event){
@@ -34,14 +32,16 @@ class IngredientContainer extends Component {
       amount:this.state.amount
     }
     fetch('/api/v1/ingredients', { method:'POST', credentials: 'same-origin', body: JSON.stringify(ingredientBody) })
-
+    .then((response)=>{
+      window.location=`/user_recipe/${this.props.recipeId}`
+    })
     console.log("you hit the submit button")
   }
 
 
   render(){
     return (
-      <div>
+      <div className="hidden">
         <p>Hello from ingredient container</p>
         <form onSubmit={this.handleSubmit}>
           <label>Amount:</label>

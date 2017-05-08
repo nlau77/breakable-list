@@ -2,15 +2,24 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import IngredientTile from '../components/IngredientTile'
 import IngredientContainer from './IngredientContainer'
+import AmountTile from '../components/AmountTile'
 
 class UserRecipes extends Component {
   constructor(props) {
     super(props);
     this.state = {
       recipe: {},
-      ingredients: []
+      ingredients: [],
+      recipeAmounts: []
     }
+    this.handleRerender=this.handleRerender.bind(this)
   }
+
+  handleRerender(){
+    console.log("hitting the rerender")
+    this.setState(this.state);
+  }
+
   componentDidMount(){
     let recipeId = this.props.params.id;
     fetch(`/api/v1/user_recipes/${recipeId}`, {credentials: 'same-origin'})
@@ -18,7 +27,8 @@ class UserRecipes extends Component {
       .then((responseData) =>{
         this.setState({
           recipe : responseData.recipe,
-          ingredients : responseData.ingredients
+          ingredients : responseData.ingredients,
+          recipeAmounts : responseData.amounts
         })
       })
   }
@@ -27,7 +37,17 @@ class UserRecipes extends Component {
       return(
         <IngredientTile
           key={ingredient.id}
+          name={ingredient.name}
           />
+      )
+    })
+
+    let amountList = this.state.recipeAmounts.map(ingredient =>{
+      return(
+        <AmountTile
+         key={ingredient.id}
+         amount={ingredient.amount}
+        />
       )
     })
 
@@ -43,7 +63,7 @@ class UserRecipes extends Component {
           <div className="rows">
             <div className="columns small-6">
               <ul>
-                {ingredientList}
+                {amountList}
               </ul>
              </div>
 
@@ -61,6 +81,7 @@ class UserRecipes extends Component {
            <div className="small-6 columns">
             <IngredientContainer
             recipeId={this.props.params.id}
+            handleRerender={this.handleRerender}
             />
            </div>
          </div>

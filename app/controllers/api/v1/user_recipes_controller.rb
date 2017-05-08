@@ -17,9 +17,12 @@ class Api::V1::UserRecipesController < ApiController
       id=params[:id]
       @recipe= Recipe.find(id)
       @ingredients = @recipe.ingredients
+      @recipe_amount = @recipe.recipeingredients
       render json: {
         recipe: @recipe,
-        ingredients: @ingredients
+        ingredients: @ingredients,
+        amounts: @recipe_amount
+
       }
     end
   end
