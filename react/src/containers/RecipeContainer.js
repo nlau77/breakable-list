@@ -27,7 +27,6 @@ class UserRecipes extends Component {
       return(
         <IngredientTile
           key={ingredient.id}
-          name={ingredient.name}
           />
       )
     })
@@ -60,7 +59,9 @@ class UserRecipes extends Component {
             <h4>place holder</h4>
            </div>
            <div className="small-6 columns">
-            <IngredientContainer />
+            <IngredientContainer
+            recipeId={this.props.params.id}
+            />
            </div>
          </div>
       </div>

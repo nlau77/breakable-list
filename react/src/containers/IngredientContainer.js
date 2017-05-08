@@ -27,10 +27,14 @@ class IngredientContainer extends Component {
 
   handleSubmit(event){
     event.preventDefault()
+    let recipeId = this.props.recipeId;
     let ingredientBody={
+      recipeId:recipeId,
       item:this.state.ingredient,
       amount:this.state.amount
     }
+    fetch('/api/v1/ingredients', { method:'POST', credentials: 'same-origin', body: JSON.stringify(ingredientBody) })
+
     console.log("you hit the submit button")
   }
 

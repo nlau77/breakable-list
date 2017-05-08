@@ -17,14 +17,14 @@ chicken_pot_pie= Recipe.create(name: "Chicken Pot Pie", instructions: " Mix it t
   recipe_ingredients_list = ["chicken", "peas", "carrots", "butter", "pie crust"]
     recipe_ingredients_list.each do |ingredient|
       item = Ingredient.find_or_create_by(name: ingredient)
-      Recipeingredient.create(recipe:chicken_pot_pie, ingredient: item)
+      Recipeingredient.create(amount:"3lbs", recipe:chicken_pot_pie, ingredient: item)
     end
 
 beef_and_brocolli = Recipe.create(name: "Beef and Brocolli", instructions: "Stir fry it", owner: user1)
   recipe_ingredients_list = ["beef", "brocolli"]
   recipe_ingredients_list.each do |ingredient|
     item = Ingredient.find_or_create_by(name: ingredient)
-    Recipeingredient.create(recipe:beef_and_brocolli, ingredient: item)
+    Recipeingredient.create(amount:"4lbs", recipe:beef_and_brocolli, ingredient: item)
   end
 
 
