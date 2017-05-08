@@ -13,14 +13,14 @@ Userlist.destroy_all
 
 user1= User.create(username: "user", email: "user@gmail.com", password: "123456")
 
-chicken_pot_pie= Recipe.create(name: "Chicken Pot Pie", instructions: " Mix it together and put it in the oven", owner: user1)
+chicken_pot_pie= Recipe.create(name: "Chicken Pot Pie", owner: user1)
   recipe_ingredients_list = ["chicken", "peas", "carrots", "butter", "pie crust"]
     recipe_ingredients_list.each do |ingredient|
       item = Ingredient.find_or_create_by(name: ingredient)
       Recipeingredient.create(amount:"3lbs", recipe:chicken_pot_pie, ingredient: item)
     end
 
-beef_and_brocolli = Recipe.create(name: "Beef and Brocolli", instructions: "Stir fry it", owner: user1)
+beef_and_brocolli = Recipe.create(name: "Beef and Brocolli", owner: user1)
   recipe_ingredients_list = ["beef", "brocolli"]
   recipe_ingredients_list.each do |ingredient|
     item = Ingredient.find_or_create_by(name: ingredient)
@@ -28,7 +28,7 @@ beef_and_brocolli = Recipe.create(name: "Beef and Brocolli", instructions: "Stir
   end
 
 
-Recipe.create(name: "Curry vegetables", instructions: "Put everything into a pot", owner: user1)
+Recipe.create(name: "Curry vegetables", owner: user1)
 
 ingredient_array=["beef", "curry", "peas", "brocolli"]
 ingredient_array.each do |ingredient|

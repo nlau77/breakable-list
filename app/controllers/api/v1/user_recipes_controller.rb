@@ -34,17 +34,17 @@ class Api::V1::UserRecipesController < ApiController
     body= request.body.read
     parsed_recipe = JSON.parse(body)
     name= parsed_recipe["name"]
-    instructions= parsed_recipe["instructions"]
-    ingredients_string=parsed_recipe["ingredients"]
+    # instructions= parsed_recipe["instructions"]
+    # ingredients_string=parsed_recipe["ingredients"]
 
-    recipe=Recipe.new(name: name, instructions: instructions)
+    recipe=Recipe.new(name: name)
     recipe.owner=current_user
       if recipe.save
-        ingredients = ingredients_string.split(',')
-          ingredients.each do |ingredient|
-            item= Ingredient.find_or_create_by(name: ingredient.downcase)
-            Recipeingredient.create(recipe: recipe, ingredient: item)
-          end
+        # ingredients = ingredients_string.split(',')
+        #   ingredients.each do |ingredient|
+        #     item= Ingredient.find_or_create_by(name: ingredient.downcase)
+        #     Recipeingredient.create(recipe: recipe, ingredient: item)
+        #   end
         @recipe=recipe
         render json: @recipe
       else
