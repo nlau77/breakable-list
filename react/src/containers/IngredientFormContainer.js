@@ -33,16 +33,15 @@ class IngredientFormContainer extends Component {
     }
     fetch('/api/v1/ingredients', { method:'POST', credentials: 'same-origin', body: JSON.stringify(ingredientBody) })
     .then((response)=>{
-      // window.location=`/user_recipe/${this.props.recipeId}`
+      // function passed down from RecipeContainer to force rerender on RecipeContainer
+      this.props.fetchRecipeInfo()
     })
     console.log("you hit the submit button")
   }
 
-
   render(){
     return (
       <div className="hidden">
-        <p>Hello from ingredient container</p>
         <form onSubmit={this.handleSubmit}>
           <label>Amount:</label>
           <input type='text' value={this.state.amount} onChange={this.handleAmountChange}/>

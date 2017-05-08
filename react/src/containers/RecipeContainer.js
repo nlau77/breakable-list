@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import IngredientTile from '../components/IngredientTile'
-import IngredientFormContainer from './IngredientContainer'
+import IngredientFormContainer from './IngredientFormContainer'
 import AmountTile from '../components/AmountTile'
 import InstructionTile from '../components/InstructionTile'
 import InstructionForm from '../components/InstructionForm'
