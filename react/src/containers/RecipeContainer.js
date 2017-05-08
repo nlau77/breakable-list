@@ -34,10 +34,14 @@ class UserRecipes extends Component {
     }
     fetch('/api/v1/instructions', { method:'POST', credentials: 'same-origin', body: JSON.stringify(instructionBody) })
     .then((response)=>{
-      console.log("it got here")
+      this.setState({
+        instructions: response.instructions
+      })
     })
   }
+  getSomeStuff(){
 
+  }
   componentDidMount(){
     let recipeId = this.props.params.id;
     fetch(`/api/v1/user_recipes/${recipeId}`, {credentials: 'same-origin'})
@@ -52,6 +56,7 @@ class UserRecipes extends Component {
       })
   }
   render(){
+    debugger
     let instructionList = this.state.instructions.map(instruction =>{
       return(
         <InstructionTile
