@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import IngredientTile from '../components/IngredientTile'
 import IngredientContainer from './IngredientContainer'
 import AmountTile from '../components/AmountTile'
+import InstructionTile from '../components/InstructionTile'
 
 class UserRecipes extends Component {
   constructor(props) {
@@ -10,7 +11,8 @@ class UserRecipes extends Component {
     this.state = {
       recipe: {},
       ingredients: [],
-      recipeAmounts: []
+      recipeAmounts: [],
+      instructions:[]
     }
     this.handleRerender=this.handleRerender.bind(this)
   }
@@ -28,11 +30,22 @@ class UserRecipes extends Component {
         this.setState({
           recipe : responseData.recipe,
           ingredients : responseData.ingredients,
-          recipeAmounts : responseData.amounts
+          recipeAmounts : responseData.amounts,
+          instructions : responseData.instructions
         })
       })
   }
   render(){
+
+    let instructionList = this.state.instructions.map(instruction =>{
+      return(
+        <InstructionTile
+          key={instruction.id}
+          step={instruction.step}
+        />
+      )
+    })
+
     let ingredientList = this.state.ingredients.map(ingredient => {
       return(
         <IngredientTile
@@ -56,7 +69,13 @@ class UserRecipes extends Component {
         <h3 className="text-center">{this.state.recipe.name} </h3>
         <div className="small-12 medium-6 columns">
           <h5 className="recipe-header">Instructions</h5>
-          <text>{this.state.recipe.instructions}</text>
+          <div className="rows">
+            <div className="columns small-6">
+              <ul>
+                {instructionList}
+              </ul>
+            </div>
+          </div>
         </div>
         <div className= "small-12 medium-6 columns">
           <h5 className="recipe-header">Ingredients</h5>
