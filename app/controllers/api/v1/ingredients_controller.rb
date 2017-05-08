@@ -7,6 +7,9 @@ class Api::V1::IngredientsController < ApiController
     recipe_id= parsed_body["recipeId"]
     item= parsed_body["item"]
     amount=parsed_body["amount"]
+      if amount.strip == ""
+        amount="1"
+      end
     recipe=Recipe.find(recipe_id)
     if item.strip != ""
       ingredient= Ingredient.find_or_create_by(name: item.downcase)
