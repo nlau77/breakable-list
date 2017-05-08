@@ -32,8 +32,10 @@ class UserRecipes extends Component {
       recipeId: recipeId,
       instruction: this.state.newInstruction
     }
-    console.log(this.state.newInstruction + "cheese")
-    console.log("handle instruction submit")
+    fetch('/api/v1/instructions', { method:'POST', credentials: 'same-origin', body: JSON.stringify(instructionBody) })
+    .then((response)=>{
+      console.log("it got here")
+    })
   }
 
   componentDidMount(){
