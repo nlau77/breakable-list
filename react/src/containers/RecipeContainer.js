@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import IngredientTile from '../components/IngredientTile'
-import IngredientContainer from './IngredientContainer'
+import IngredientFormContainer from './IngredientContainer'
 import AmountTile from '../components/AmountTile'
 import InstructionTile from '../components/InstructionTile'
 import InstructionForm from '../components/InstructionForm'
@@ -16,9 +16,9 @@ class UserRecipes extends Component {
       instructions:[],
       newInstruction: ""
     }
-    this.handleStepChange=this.handleStepChange.bind(this)
-    this.handleInstructionSubmit=this.handleInstructionSubmit.bind(this)
-    this.fetchRecipeInfo=this.fetchRecipeInfo.bind(this)
+    this.handleStepChange=this.handleStepChange.bind(this);
+    this.handleInstructionSubmit=this.handleInstructionSubmit.bind(this);
+    this.fetchRecipeInfo=this.fetchRecipeInfo.bind(this);
   }
 
   handleStepChange(event){
@@ -53,16 +53,18 @@ class UserRecipes extends Component {
         instructions : responseData.instructions
       })
     })
-
   }
 
   componentDidMount(){
-    this.fetchRecipeInfo()
+    this.fetchRecipeInfo();
   }
   render(){
+    let stepNumber = 0;
     let instructionList = this.state.instructions.map(instruction =>{
+      stepNumber ++;
       return(
         <InstructionTile
+          stepNumber={stepNumber}
           key={instruction.id}
           step={instruction.step}
         />
@@ -128,9 +130,9 @@ class UserRecipes extends Component {
             <h4>place holder</h4>
            </div>
            <div className="small-6 columns">
-            <IngredientContainer
+            <IngredientFormContainer
             recipeId={this.props.params.id}
-            handleRerender={this.handleRerender}
+            fetchRecipeInfo={this.fetchRecipeInfo}
             />
            </div>
          </div>

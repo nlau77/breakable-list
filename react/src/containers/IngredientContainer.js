@@ -1,7 +1,7 @@
 import React, { Component }  from 'react';
 import { Link } from 'react-router';
 
-class IngredientContainer extends Component {
+class IngredientFormContainer extends Component {
   constructor(props){
     super(props);
     this.state={
@@ -56,4 +56,4 @@ class IngredientContainer extends Component {
   }
 }
 
-export default IngredientContainer
+export default IngredientFormContainer

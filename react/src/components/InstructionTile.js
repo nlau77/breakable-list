@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 
 const InstructionTile = (props) => {
   return (
-    <li>{props.step}</li>
+    <li>({props.stepNumber}) {props.step}</li>
   )
 }
 
