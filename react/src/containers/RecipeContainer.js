@@ -18,6 +18,7 @@ class UserRecipes extends Component {
     }
     this.handleStepChange=this.handleStepChange.bind(this)
     this.handleInstructionSubmit=this.handleInstructionSubmit.bind(this)
+    this.fetchRecipeInfo=this.fetchRecipeInfo.bind(this)
   }
 
   handleStepChange(event){
@@ -35,28 +36,30 @@ class UserRecipes extends Component {
     fetch('/api/v1/instructions', { method:'POST', credentials: 'same-origin', body: JSON.stringify(instructionBody) })
     .then((response)=>{
       this.setState({
-        instructions: response.instructions
+        newInstruction:""
       })
+      this.fetchRecipeInfo()
     })
   }
-  getSomeStuff(){
-
-  }
-  componentDidMount(){
+  fetchRecipeInfo(){
     let recipeId = this.props.params.id;
     fetch(`/api/v1/user_recipes/${recipeId}`, {credentials: 'same-origin'})
-      .then((response) => response.json())
-      .then((responseData) =>{
-        this.setState({
-          recipe : responseData.recipe,
-          ingredients : responseData.ingredients,
-          recipeAmounts : responseData.amounts,
-          instructions : responseData.instructions
-        })
+    .then((response) => response.json())
+    .then((responseData) =>{
+      this.setState({
+        recipe : responseData.recipe,
+        ingredients : responseData.ingredients,
+        recipeAmounts : responseData.amounts,
+        instructions : responseData.instructions
       })
+    })
+
+  }
+
+  componentDidMount(){
+    this.fetchRecipeInfo()
   }
   render(){
-    debugger
     let instructionList = this.state.instructions.map(instruction =>{
       return(
         <InstructionTile
