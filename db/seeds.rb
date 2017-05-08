@@ -10,6 +10,7 @@ Recipe.destroy_all
 Ingredient.destroy_all
 Recipeingredient.destroy_all
 Userlist.destroy_all
+Instruction.destroy_all
 
 user1= User.create(username: "user", email: "user@gmail.com", password: "123456")
 
@@ -19,6 +20,11 @@ chicken_pot_pie= Recipe.create(name: "Chicken Pot Pie", owner: user1)
       item = Ingredient.find_or_create_by(name: ingredient)
       Recipeingredient.create(amount:"3lbs", recipe:chicken_pot_pie, ingredient: item)
     end
+    Instruction.create(step:"first step", recipe:chicken_pot_pie )
+    Instruction.create(step:"second step", recipe:chicken_pot_pie )
+    Instruction.create(step:"third step", recipe:chicken_pot_pie )
+    Instruction.create(step:"fourth step", recipe:chicken_pot_pie )
+    Instruction.create(step:"fifth step", recipe:chicken_pot_pie )
 
 beef_and_brocolli = Recipe.create(name: "Beef and Brocolli", owner: user1)
   recipe_ingredients_list = ["beef", "brocolli"]
@@ -26,7 +32,11 @@ beef_and_brocolli = Recipe.create(name: "Beef and Brocolli", owner: user1)
     item = Ingredient.find_or_create_by(name: ingredient)
     Recipeingredient.create(amount:"4lbs", recipe:beef_and_brocolli, ingredient: item)
   end
-
+  Instruction.create(step:"first step", recipe:beef_and_brocolli )
+  Instruction.create(step:"second step", recipe:beef_and_brocolli )
+  Instruction.create(step:"third step", recipe:beef_and_brocolli )
+  Instruction.create(step:"fourth step", recipe:beef_and_brocolli )
+  Instruction.create(step:"fifth step", recipe:beef_and_brocolli )
 
 Recipe.create(name: "Curry vegetables", owner: user1)
 
