@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import IngredientTile from '../components/IngredientTile'
+import IngredientContainer from './IngredientContainer'
 
 class UserRecipes extends Component {
   constructor(props) {
@@ -46,13 +47,22 @@ class UserRecipes extends Component {
                 {ingredientList}
               </ul>
              </div>
+
              <div className="columns small-6">
               <ul>
                 {ingredientList}
               </ul>
              </div>
            </div>
-        </div>
+         </div>
+         <div className="rows">
+           <div className="small-6 columns">
+            <h4>place holder</h4>
+           </div>
+           <div className="small-6 columns">
+            <IngredientContainer />
+           </div>
+         </div>
       </div>
     )
   }

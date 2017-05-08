@@ -62,7 +62,7 @@ class CreateRecipe extends Component {
 
     return(
       <div className="rows">
-        <h3 className="text-center">Submit A Recipe!</h3>
+        <h3 className="text-center">Recipe Name</h3>
           {errors}
         <div className="columns small-8 small-centered">
           <RecipeForm
