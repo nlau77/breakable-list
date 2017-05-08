@@ -16,13 +16,14 @@ class Api::V1::UserRecipesController < ApiController
     if current_user.present?
       id=params[:id]
       @recipe= Recipe.find(id)
+      @instructions=@recipe.instructions
       @ingredients = @recipe.ingredients
       @recipe_amount = @recipe.recipeingredients
       render json: {
         recipe: @recipe,
         ingredients: @ingredients,
-        amounts: @recipe_amount
-
+        amounts: @recipe_amount,
+        instructions: @instructions
       }
     end
   end
