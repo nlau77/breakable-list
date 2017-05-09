@@ -49,15 +49,17 @@ $bluegreen: #0E8D94;
 }
 
 .recipe-title-form{
-  // border: solid 1px black;
   padding-right: 10px;
   padding-left: 10px;
-  // margin: 10px;
   border-radius: 30px;
   // box-shadow: 1px 1px 5px;
 }
 
 .button{
   border-radius: 10px;
-  background-color: $bluegreen;
+  background-color: darken($greyblue, 15%) ;
+}
+
+.button:hover{
+  background-color: darken($greyblue, 35%) ;
 }

@@ -32,7 +32,7 @@ class UserRecipes extends Component {
     let userCustomRecipes
       userCustomRecipes = this.state.userCustomRecipes.map(recipe =>{
         return (
-          <div className="recipe-links small-12 large-4 medium-3 columns">
+          <div className="recipe-links small-12 large-3 medium-4 columns">
               <Link className="" to={`/user_recipe/${recipe.id}`}>{recipe.name}</Link>
           </div>
         )
