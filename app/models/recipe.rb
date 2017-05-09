@@ -4,8 +4,10 @@ class Recipe < ApplicationRecord
   has_many :ingredients, through: :recipeingredients
   has_many :recipeingredients
 
-  validates :name, presence: true
-  validates :instructions, presence: true
+  has_many :instructions
 
-  has_many :grocerylists 
+  validates :name, presence: true
+  # validates :instructions, presence: true
+
+  has_many :grocerylists
 end

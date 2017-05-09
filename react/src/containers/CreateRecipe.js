@@ -12,8 +12,8 @@ class CreateRecipe extends Component {
       messages: []
     }
     this.handleNameChange = this.handleNameChange.bind(this)
-    this.handleInstructionsChange = this.handleInstructionsChange.bind(this)
-    this.handleIngredientsChange = this.handleIngredientsChange.bind(this)
+    // this.handleInstructionsChange = this.handleInstructionsChange.bind(this)
+    // this.handleIngredientsChange = this.handleIngredientsChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
@@ -22,15 +22,15 @@ class CreateRecipe extends Component {
       this.setState({ name: newName})
   }
 
-  handleInstructionsChange(event){
-      let newInstructions = event.target.value
-      this.setState({ instructions: newInstructions})
-  }
-
-  handleIngredientsChange(event){
-      let newIngredients = event.target.value
-      this.setState({ ingredients: newIngredients})
-  }
+  // handleInstructionsChange(event){
+  //     let newInstructions = event.target.value
+  //     this.setState({ instructions: newInstructions})
+  // }
+  //
+  // handleIngredientsChange(event){
+  //     let newIngredients = event.target.value
+  //     this.setState({ ingredients: newIngredients})
+  // }
 
   handleSubmit(event){
     event.preventDefault()
@@ -54,6 +54,12 @@ class CreateRecipe extends Component {
   }
 
   render(){
+    // handleInstructionsChange={this.handleInstructionsChange}
+    // handleIngredientsChange={this.handleIngredientsChange}
+    // instructions={this.state.instructions}
+    // ingredients={this.state.ingredients}
+
+
     let errors = this.state.messages.map (error =>{
       return (
         <p className="error-message text-center">{error}</p>
@@ -62,17 +68,13 @@ class CreateRecipe extends Component {
 
     return(
       <div className="rows">
-        <h3 className="text-center">Submit A Recipe!</h3>
+        <h3 className="text-center">New Recipe Title</h3>
           {errors}
         <div className="columns small-8 small-centered">
           <RecipeForm
-          handleNameChange={this.handleNameChange}
-          handleInstructionsChange={this.handleInstructionsChange}
-          handleIngredientsChange={this.handleIngredientsChange}
-          name={this.state.name}
-          instructions={this.state.instructions}
-          ingredients={this.state.ingredients}
-          handleSubmit={this.handleSubmit}
+            handleNameChange={this.handleNameChange}
+            name={this.state.name}
+            handleSubmit={this.handleSubmit}
           />
         </div>
       </div>
