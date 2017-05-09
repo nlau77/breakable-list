@@ -1,4 +1,5 @@
 class Api::V1::InstructionsController < ApiController
+  skip_before_action :verify_authenticity_token
 
   def create
     body = request.body.read
