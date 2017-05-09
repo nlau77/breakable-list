@@ -15,7 +15,6 @@ class Api::V1::UserListsController < ApiController
       ingredients: @ingredients_list,
       recipe: @newest_grocery_list
     }
-    # binding.pry
   end
 
   def show
@@ -36,7 +35,8 @@ class Api::V1::UserListsController < ApiController
       # return some message
     else
       if list_title == ""
-        list_title = "You forgot to add a title"
+        # binding.pry
+        list_title = "#{Date.parse(Time.now.to_s).strftime("%d/%m")} List"
       end
       newList = Userlist.create(title: list_title, user: user)
 
