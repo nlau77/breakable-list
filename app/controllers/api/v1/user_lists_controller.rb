@@ -34,9 +34,9 @@ class Api::V1::UserListsController < ApiController
     if recipe_ids ==[]
       # return some message
     else
-      if list_title == ""
-        # binding.pry
-        list_title = "#{Date.parse(Time.now.to_s).strftime("%d/%m")} List"
+      if list_title.strip == ""
+        date = Date.parse(Time.now.to_s).strftime("%d/%m")
+        list_title = "#{date} Grocery List"
       end
       newList = Userlist.create(title: list_title, user: user)
 

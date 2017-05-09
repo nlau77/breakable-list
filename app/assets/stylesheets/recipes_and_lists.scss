@@ -24,3 +24,17 @@ $bluegreen: #0E8D94;
   border-bottom: 1px solid $greyblue;
   // width: 10em;
 }
+
+.link-header{
+  text-decoration: none;
+  border-bottom: 2px solid $greyblue;
+  padding-left: 75px;
+  padding-right: 75px;
+  font-size: 35px;
+}
+
+.recipe-links{
+  margin-bottom: 10em;
+  padding-bottom: 10em;
+  // background-color: black;
+}

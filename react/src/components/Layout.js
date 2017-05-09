@@ -10,7 +10,7 @@ const Layout = (props) => {
         </div>
       </div>
 
-     <div className="rows react-component-background">
+     <div className="rows react-component-background layout-links-bar">
        <div className="small-12 medium-3 large-3 text-centered columns">
           <Link className='' to='/'> My Recipes</Link>
         </div>
