@@ -21,7 +21,7 @@ const Layout = (props) => {
           <Link className='' to='/user_lists/new'> Make List</Link>
         </div>
         <div className="small-12 medium-3 large-3 text-centered columns">
-          <Link className='' to='/user_list'> See My link</Link>
+          <Link className='' to='/user_list'> My Lists</Link>
         </div>
       </div>
 

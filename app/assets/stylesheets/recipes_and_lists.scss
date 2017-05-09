@@ -25,7 +25,7 @@ $bluegreen: #0E8D94;
   // width: 10em;
 }
 
-.link-header{
+.title-header{
   text-decoration: none;
   border-bottom: 2px solid $greyblue;
   padding-left: 75px;
@@ -34,7 +34,8 @@ $bluegreen: #0E8D94;
 }
 
 .recipe-links{
-  margin-bottom: 10em;
-  padding-bottom: 10em;
+  margin-bottom: 1em;
+  font-size: 18px;
+  // padding-bottom: 1em;
   // background-color: black;
 }
