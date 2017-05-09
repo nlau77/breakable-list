@@ -89,12 +89,16 @@ class UserRecipes extends Component {
 
     return (
       <div className="rows">
-        <h3 className="text-center">{this.state.recipe.name} </h3>
+          <div className="small-12 columns">
+            <h3 className="text-center">
+              <u className="sub-title-header">{this.state.recipe.name}</u>
+            </h3>
+          </div>
         <div className="small-12 medium-6 columns">
           <h5 className="recipe-header">Instructions</h5>
           <div className="rows">
             <div className="columns small-12">
-              <ul>
+              <ul className="item-ul">
                 {instructionList}
               </ul>
             </div>
