@@ -16,10 +16,9 @@ class Api::V1::UserRecipesController < ApiController
     if current_user.present?
       id=params[:id]
       @recipe= Recipe.find(id)
-      @instructions=@recipe.instructions
+      @instructions=@recipe.instructions.order(created_at: :asc)
       @recipe_amount = @recipe.recipeingredients
-      # need to grab ingredients second so that it matches the order of the
-      # input for amounts
+      # need to grab ingredients second so that it matches the order of the input for amounts
       @ingredients = []
        @recipe.recipeingredients.each do |recipe_ingredient|
          @ingredients << recipe_ingredient.ingredient
