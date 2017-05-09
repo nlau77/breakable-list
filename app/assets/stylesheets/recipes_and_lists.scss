@@ -63,3 +63,11 @@ $bluegreen: #0E8D94;
 .button:hover{
   background-color: darken($greyblue, 35%) ;
 }
+
+.button:focus{
+  background-color: darken($greyblue, 35%) ;
+}
+
+.item-ul{
+  margin-left: 0px;
+}
