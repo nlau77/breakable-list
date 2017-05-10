@@ -9,18 +9,17 @@ const Layout = (props) => {
         <div className="columns text-center title header-image">
         </div>
       </div>
-
-     <div className="rows react-component-background layout-links-bar">
-       <div className="small-6 medium-3 large-3 text-centered columns">
+     <div className="rows text-center react-component-background layout-links-bar">
+       <div className="small-6 medium-3 large-3 text-centered columns layout-header">
           <Link className='' to='/'> My Recipes</Link>
         </div>
-        <div className="small-6 medium-3 large-3 text-centered columns">
+        <div className="small-6 medium-3 large-3 text-centered layout-header columns">
           <Link className='' to='/user_recipes/new'> New Recipe</Link>
         </div>
-        <div className="small-6 medium-3 large-3 text-centered columns">
+        <div className="small-6 medium-3 large-3 text-centered layout-header columns">
           <Link className='' to='/user_lists/new'> Make List</Link>
         </div>
-        <div className="small-6 medium-3 large-3 text-centered columns">
+        <div className="small-6 medium-3 large-3 text-centered layout-header columns">
           <Link className='' to='/user_list'> My Lists</Link>
         </div>
       </div>
