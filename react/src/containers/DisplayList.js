@@ -11,7 +11,7 @@ class DisplayList extends Component {
       list: {},
       ingredients: [],
       selected_list: "",
-      recipes:{},
+      recipes:[],
       oldLists:[],
       selectedIngredients:[]
     }
@@ -50,6 +50,7 @@ class DisplayList extends Component {
   }
 
   render(){
+
     let ingredientsList = this.state.ingredients.map(ingredient => {
       let handleClick = () => this.handleClickIngredient(ingredient.id)
       let ingredientClassName = "unselected-ingredient text-center"
@@ -66,17 +67,28 @@ class DisplayList extends Component {
       )
     })
 
+    let selectedRecipes = this.state.recipes.map(recipe =>{
+      return (
+        <div className="small-12 medium-6 text-center columns">
+          <p><Link className="" to={`/user_recipe/${recipe.id}`}>{recipe.name}</Link></p>
+        </div>
+      )
+    })
+
     return(
       <div className="rows">
-        <h3 className="text-center">Grocery List</h3>
+        <h3 className="text-center title-header3"><u className="title-header">Grocery List</u></h3>
         <div className="columns small-12 medium-6">
-        <h5 className="list-header text-center">{this.state.list.title}</h5>
+          <h5 className="list-header text-center">{this.state.list.title}</h5>
           <div className="rows">
             {ingredientsList}
           </div>
         </div>
-        <div className=" columns small-12 medium-6 large-4">
+        <div className=" columns small-12 medium-6">
           <h5 className="list-header text-center">Selected Recipes</h5>
+          <div className="rows">
+            {selectedRecipes}
+          </div>
         </div>
       </div>
     )
