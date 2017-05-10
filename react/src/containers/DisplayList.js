@@ -89,6 +89,12 @@ class DisplayList extends Component {
           <div className="rows">
             {selectedRecipes}
           </div>
+          <div className="row">
+          </div>
+          <div className="rows">
+            <h5 className="list-header text-center">Previous Grocerylists</h5>
+            <p>5 newest user lists go here</p>
+          </div>
         </div>
       </div>
     )

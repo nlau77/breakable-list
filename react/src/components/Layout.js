@@ -17,10 +17,10 @@ const Layout = (props) => {
           <Link className='' to='/user_recipes/new'> New Recipe</Link>
         </div>
         <div className="small-6 medium-3 large-3 text-centered layout-header columns">
-          <Link className='' to='/user_lists/new'> Make List</Link>
+          <Link className='' to='/user_lists/new'>New Grocery List</Link>
         </div>
         <div className="small-6 medium-3 large-3 text-centered layout-header columns">
-          <Link className='' to='/user_list'> My Lists</Link>
+          <Link className='' to='/user_list'>Vew Lists</Link>
         </div>
       </div>
 
