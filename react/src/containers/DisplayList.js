@@ -8,10 +8,10 @@ class DisplayList extends Component {
   constructor(props){
     super(props)
     this.state ={
-      recipe: {},
+      list: {},
       ingredients: [],
       selected_list: "",
-      recipes:[],
+      recipes:{},
       oldLists:[],
       selectedIngredients:[]
     }
@@ -42,8 +42,9 @@ class DisplayList extends Component {
       .then((responseData) =>{
         // console.log("it comes here")
         this.setState({
-          recipe: responseData.recipe,
-          ingredients: responseData.ingredients
+          list: responseData.list,
+          ingredients: responseData.ingredients,
+          recipes: responseData.recipes
         })
       })
   }
@@ -69,13 +70,13 @@ class DisplayList extends Component {
       <div className="rows">
         <h3 className="text-center">Grocery List</h3>
         <div className="columns small-12 medium-6">
-        <h5 className="list-header text-center">{this.state.recipe.title}</h5>
+        <h5 className="list-header text-center">{this.state.list.title}</h5>
           <div className="rows">
             {ingredientsList}
           </div>
         </div>
         <div className=" columns small-12 medium-6 large-4">
-          <h5 className="list-header">place holder text</h5>
+          <h5 className="list-header text-center">Selected Recipes</h5>
         </div>
       </div>
     )
