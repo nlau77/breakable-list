@@ -26,7 +26,7 @@ corn_starch=Ingredient.create(name:"corn_starch")
 garlic=Ingredient.create(name:"garlic")
 
 
-user1= User.create(username: "user", email: "user@gmail.com", password: "123456")
+user1= User.create(username: "Visitor", email: "user@gmail.com", password: "123456")
 
 chicken_pot_pie= Recipe.create(name: "Chicken Pot Pie", owner: user1)
   recipe_ingredients_list = ["chicken", "peas", "carrots", "butter", "pie crust"]

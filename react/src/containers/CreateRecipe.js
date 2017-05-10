@@ -68,9 +68,9 @@ class CreateRecipe extends Component {
 
     return(
       <div className="rows">
-        <h3 className="text-center">New Recipe Title</h3>
+        <h3 className="text-center title-header3"><u className="title-header">New Recipe</u></h3>
           {errors}
-        <div className="columns small-8 small-centered">
+        <div className="columns small-8 large-4 medium-6 small-centered new-recipe-form">
           <RecipeForm
             handleNameChange={this.handleNameChange}
             name={this.state.name}

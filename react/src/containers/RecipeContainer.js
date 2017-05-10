@@ -89,12 +89,16 @@ class UserRecipes extends Component {
 
     return (
       <div className="rows">
-        <h3 className="text-center">{this.state.recipe.name} </h3>
+          <div className="small-12 columns">
+            <h3 className="text-center">
+              <u className="sub-title-header">{this.state.recipe.name}</u>
+            </h3>
+          </div>
         <div className="small-12 medium-6 columns">
           <h5 className="recipe-header">Instructions</h5>
           <div className="rows">
             <div className="columns small-12">
-              <ul>
+              <ul className="item-ul">
                 {instructionList}
               </ul>
             </div>
@@ -111,31 +115,28 @@ class UserRecipes extends Component {
         <div className= "small-12 medium-6 columns">
           <h5 className="recipe-header">Ingredients</h5>
           <div className="rows">
-            <div className="columns small-6">
-              <ul>
+            <div className="columns small-5">
+              <ul className="item-ul">
                 {amountList}
               </ul>
              </div>
 
-             <div className="columns small-6">
-              <ul>
+             <div className="columns small-7 ul-div">
+              <ul className="item-ul">
                 {ingredientList}
               </ul>
              </div>
            </div>
+         <div className="rows">
+
+             <IngredientFormContainer
+             recipeId={this.props.params.id}
+             fetchRecipeInfo={this.fetchRecipeInfo}
+             />
+
+          </div>
          </div>
 
-         <div className="rows">
-           <div className="small-6 columns">
-            <h4>place holder</h4>
-           </div>
-           <div className="small-6 columns">
-            <IngredientFormContainer
-            recipeId={this.props.params.id}
-            fetchRecipeInfo={this.fetchRecipeInfo}
-            />
-           </div>
-         </div>
       </div>
     )
   }

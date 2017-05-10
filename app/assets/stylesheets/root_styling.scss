@@ -38,7 +38,29 @@ body{
 
 a {
   color: $bluegreen;
+  // border: solid 1px black;
+  // margin-bottom: 5em;
+  // padding-bottom: 5em
 }
+
+ul{
+  list-style: none;
+}
+
+.button{
+  border-radius: 10px;
+  background-color: darken($greyblue, 15%);
+  width: 100px;
+}
+
+.button:hover{
+  background-color: darken($greyblue, 35%) ;
+}
+
+.button:focus{
+  background-color: darken($greyblue, 35%) ;
+}
+
 
 .peagreen{
   background-color: $peagreen;

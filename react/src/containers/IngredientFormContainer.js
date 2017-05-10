@@ -34,6 +34,10 @@ class IngredientFormContainer extends Component {
     fetch('/api/v1/ingredients', { method:'POST', credentials: 'same-origin', body: JSON.stringify(ingredientBody) })
     .then((response)=>{
       // function passed down from RecipeContainer to force rerender on RecipeContainer
+      this.setState({
+        ingredient:"",
+        amount:""
+      })
       this.props.fetchRecipeInfo()
     })
     console.log("you hit the submit button")
@@ -43,12 +47,17 @@ class IngredientFormContainer extends Component {
     return (
       <div className="hidden">
         <form onSubmit={this.handleSubmit}>
-          <label>Amount:</label>
-          <input type='text' value={this.state.amount} onChange={this.handleAmountChange}/>
-
-          <label>Item:</label>
-          <input type='text' value={this.state.ingredient} onChange={this.handleItemChange}/>
-          <input type="submit" value="+"/>
+          <div className="small-4 columns">
+            <label>Amount:</label>
+            <input type='text' value={this.state.amount} onChange={this.handleAmountChange}/>
+          </div>
+          <div className="small-8 columns">
+            <label>Item:</label>
+            <input type='text' value={this.state.ingredient} onChange={this.handleItemChange}/>
+          </div>
+          <div className="small-offset-4">
+            <input type="submit" className="button expand" value="Add"/>
+          </div>
         </form>
       </div>
     )

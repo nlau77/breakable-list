@@ -77,9 +77,10 @@ class ListContainer extends Component {
       .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
   render(){
+
     let userRecipes;
       userRecipes = this.state.userRecipes.map(recipe =>{
-        let recipeClassName = ""
+        let recipeClassName = "unselected-recipe"
         let handleClick = () => this.handleClickRecipe(recipe.id)
         if(this.state.selectedRecipes.includes(recipe.id)){
           recipeClassName="selected-recipe"
@@ -99,22 +100,22 @@ class ListContainer extends Component {
 
     return(
       <div>
-        <div className="row">
+        <div className="rows">
           <div className="text-center">
-            <h3>Select Your Recipes </h3>
-            <div>
+            <h3 className="title-header3"><u className="select-recipes-header">Select Your Recipes</u></h3>
               {userRecipes}
-            </div>
           </div>
+        </div>
+        <div className="row">
         </div>
         <div className="rows">
-          <div className="small-12 medium-6 large-6 small-offset-4 medium-offset-4 large-offset-4 columns">
-            <p>Give your list a title (optional)</p>
+          <div className="small-8 small-offset-2 medium-offset-4 columns">
+            <label className="optional">Give your list a title (optional)</label>
             <input onChange={this.handleTitleChange} />
           </div>
-        </div>
-        <div className="small-12 medium-6 large-6 small-offset-4 medium-offset-4 large-offset-4 columns">
-          <button onClick={this.handleSaveList}>Save List!</button>
+          <div className="medium-3 columns">
+            <button className="button" onClick={this.handleSaveList}>Save List!</button>
+          </div>
         </div>
       </div>
     )
