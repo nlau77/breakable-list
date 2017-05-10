@@ -77,9 +77,10 @@ class ListContainer extends Component {
       .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
   render(){
+
     let userRecipes;
       userRecipes = this.state.userRecipes.map(recipe =>{
-        let recipeClassName = ""
+        let recipeClassName = "unselected-recipe"
         let handleClick = () => this.handleClickRecipe(recipe.id)
         if(this.state.selectedRecipes.includes(recipe.id)){
           recipeClassName="selected-recipe"
