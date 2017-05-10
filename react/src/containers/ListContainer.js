@@ -27,7 +27,7 @@ class ListContainer extends Component {
         this.setState({ selectedRecipes: updateSelectedRecipes})
       }
 
-    console.log(this.state.selectedRecipes)
+    // console.log(this.state.selectedRecipes)
   }
 
   handleTitleChange(event){
@@ -111,10 +111,11 @@ class ListContainer extends Component {
         <div className="rows">
           <div className="small-8 small-offset-2 medium-offset-4 columns">
             <label className="optional">Give your list a title (optional)</label>
-            <input onChange={this.handleTitleChange} />
+            <input onChange={this.handleTitleChange} /><br />
+            <button className="button" onClick={this.handleSaveList}>Save List!</button>
           </div>
           <div className="medium-3 columns">
-            <button className="button" onClick={this.handleSaveList}>Save List!</button>
+
           </div>
         </div>
       </div>

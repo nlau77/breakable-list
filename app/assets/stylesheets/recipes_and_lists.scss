@@ -21,7 +21,7 @@ $smoothgrey: #666666;
   padding-right:5px;
 }
 
-.select-recipe.hover{
+.select-recipe:hover{
   cursor: pointer; cursor: hand;
 }
 
@@ -33,6 +33,12 @@ $smoothgrey: #666666;
   background: $greyblue;
   cursor: pointer; cursor: hand;
 }
+@media only screen and (max-width: 450px) {
+   .unselected-recipe:hover{
+      background: lighten(grey,40%);
+      }
+}
+
 
 .wrap-recipes{
   margin-left: 5px;
@@ -96,4 +102,25 @@ $smoothgrey: #666666;
 .item-ul{
   margin-left: 0px;
   // font-size: 10px;
+}
+
+.selected-ingredient{
+  background: lighten(grey,40%);
+  border-radius: 10px;
+  text-decoration: line-through;
+}
+
+.unselected-ingredient{
+  color: darken($smoothgrey, 20%);
+  background: darken($greyblue, 10%);
+  border-radius: 10px;
+  padding-left:5px;
+  padding-right:5px;
+}
+
+.unselected-ingredient:hover{
+  cursor: pointer; cursor: hand;
+}
+.selected-ingredient:hover{
+  cursor: pointer; cursor: hand;
 }
