@@ -16,13 +16,25 @@
 }
 
 .header-image{
-  background-blend-mode: screen;
   background-image: image-url("fruits.jpg");
-  height: 20em;
+  height: 300px;
   margin-bottom: 1em;
-  zoom: 10%;
+  width:100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  // background-blend-mode: screen;
+  // zoom: 10%;
+  // background-repeat:none;
 }
 
+
+@media only screen and (max-width: 450px) {
+   .header-image {
+      height: 175px;
+      margin-bottom: 1px;
+    }
+}
 .image-row{
   margin-top: 0
 }
