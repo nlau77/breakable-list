@@ -53,6 +53,20 @@ $smoothgrey: #666666;
   // width: 10em;
 }
 
+
+.front-recipe-links{
+  background-color: lighten($greyblue, 5%);
+  border-radius: 30px;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.front-recipe-links:hover{
+  background-color: lighten($greyblue, 0%);
+
+}
 .title-header{
   text-decoration: none;
   border-bottom: 2px solid $greyblue;
@@ -123,4 +137,9 @@ $smoothgrey: #666666;
 }
 .selected-ingredient:hover{
   cursor: pointer; cursor: hand;
+}
+
+.select-recipes-button{
+  margin-top: 5px;
+  margin-left: 35px;
 }

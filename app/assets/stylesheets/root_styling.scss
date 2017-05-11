@@ -16,15 +16,20 @@ body{
   color: $smoothgrey;
 }
 
+.username{
+  color:$bluegreen;
+}
 
+// .user-buttons{
+//
+// }
+
+// keep example media query to reference
 // @media only screen and (max-width: 450px) {
-// 
 //    body {
 //   font-size: .5em;
 //   background-color: red;
-//
 //       }
-//
 // }
 
 .title{
@@ -64,6 +69,7 @@ ul{
   border-radius: 10px;
   background-color: darken($greyblue, 15%);
   width: 100px;
+  outline: none;
 }
 
 .button:hover{
@@ -74,7 +80,7 @@ ul{
   background-color: darken($greyblue, 35%) ;
 }
 
-
+// for testing out colors
 .peagreen{
   background-color: $peagreen;
 }

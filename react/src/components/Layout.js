@@ -6,7 +6,7 @@ const Layout = (props) => {
  return(
    <div>
      <div className="row image-row">
-        <div className="columns text-center title header-image">
+        <div className="columns text-center title">
         </div>
       </div>
      <div className="rows text-center react-component-background layout-links-bar">
@@ -25,7 +25,7 @@ const Layout = (props) => {
       </div>
 
 
-      <div className="rows">
+      <div className="rows children-props">
         { props.children }
       </div>
 

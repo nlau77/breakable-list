@@ -18,7 +18,8 @@
         </div>
         <div class="columns small-5 medium-6 text-right">
           <% if current_user.present? %>
-            <span><%= link_to "#{current_user.username} | ", user_path(current_user) %></span>
+            <span class="username"><%= current_user.username %></span>
+            <span> | </span>
             <span><%= link_to "Log Out", destroy_user_session_path, :method => :delete %><span></br>
           <% else %>
             <span><%=link_to "Sign Up", new_user_registration_path %></span> |

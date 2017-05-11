@@ -16,13 +16,25 @@
 }
 
 .header-image{
-  background-blend-mode: screen;
   background-image: image-url("fruits.jpg");
-  height: 20em;
+  height: 300px;
   margin-bottom: 1em;
-  zoom: 10%;
+  width:100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  // background-blend-mode: screen;
+  // zoom: 10%;
+  // background-repeat:none;
 }
 
+
+@media only screen and (max-width: 450px) {
+   .header-image {
+      height: 175px;
+      margin-bottom: 1px;
+    }
+}
 .image-row{
   margin-top: 0
 }
@@ -32,11 +44,22 @@
 }
 
 .layout-links-bar{
-  margin-bottom: 5em;
+  margin-bottom: 4em;
   margin-top: 1em;
   margin-left: 1em;
+  font-size: 20px;
+}
+
+@media only screen and (max-width: 450px) {
+   .layout-links-bar {
+      font-size: 15px;
+    }
 }
 
 .title-header3{
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+}
+
+.children-props{
+  // padding-right: 0px;
 }
