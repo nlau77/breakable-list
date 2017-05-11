@@ -53,6 +53,20 @@ $smoothgrey: #666666;
   // width: 10em;
 }
 
+
+.front-recipe-links{
+  background-color: lighten($greyblue, 5%);
+  border-radius: 30px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.front-recipe-links:hover{
+  background-color: lighten($greyblue, 0%);
+  border-radius: 30px;
+}
 .title-header{
   text-decoration: none;
   border-bottom: 2px solid $greyblue;
