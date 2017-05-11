@@ -1,5 +1,5 @@
 <div class="rows">
-  <div class="small-6 columns medium-offset-3 large-offset-3">
+  <div class="small-8 medium-6 columns small-centered">
     <h2 class="text-center">Log in</h2>
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -19,10 +19,9 @@
           <%= f.label :remember_me %>
         </div>
       <% end -%>
-
-      <div class="actions">
-        <%= f.submit "Log in" %>
-      </div>
+        <div class="actions user-buttons">
+          <%= f.submit "Log in" %>
+        </div>
     <% end %>
 
     <%= render "users/shared/links" %>
