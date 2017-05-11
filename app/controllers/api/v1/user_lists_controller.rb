@@ -4,16 +4,17 @@ class Api::V1::UserListsController < ApiController
   def index
     user = current_user
     @newest_grocery_list = user.userlists.last
-    recipes = @newest_grocery_list.recipes
+    @recipes = @newest_grocery_list.recipes
     @ingredients_list=[]
-    recipes.each do |recipe|
+    @recipes.each do |recipe|
       recipe.ingredients. each do |ingredient|
         @ingredients_list << ingredient
       end
     end
     render json: {
       ingredients: @ingredients_list,
-      recipe: @newest_grocery_list
+      list: @newest_grocery_list,
+      recipes: @recipes
     }
   end
 
