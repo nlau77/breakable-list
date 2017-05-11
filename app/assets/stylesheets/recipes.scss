@@ -39,7 +39,6 @@ $smoothgrey: #666666;
       }
 }
 
-
 .wrap-recipes{
   margin-left: 5px;
   margin-right: 5px;
@@ -112,34 +111,59 @@ $smoothgrey: #666666;
   // box-shadow: 1px 1px 5px;
 }
 
-
-.item-ul{
-  margin-left: 0px;
-  // font-size: 10px;
-}
-
-.selected-ingredient{
-  background: lighten(grey,40%);
+.delete-recipes-button{
+  border: solid 1px lighten($smoothgrey, 10%);
+  padding: 3px;
+  font-size: 20px;
   border-radius: 10px;
-  text-decoration: line-through;
+  color: lighten($smoothgrey, 10%);
+
 }
 
-.unselected-ingredient{
-  color: darken($smoothgrey, 20%);
-  background: darken($greyblue, 10%);
-  border-radius: 10px;
-  padding-left:5px;
-  padding-right:5px;
+.delete-recipes-button:hover{
+  cursor: pointer;
+  background: lighten(red, 30%)
 }
 
-.unselected-ingredient:hover{
-  cursor: pointer; cursor: hand;
-}
-.selected-ingredient:hover{
-  cursor: pointer; cursor: hand;
+.delete-button{
+  color:red;
+  margin-right: 3px;
+  padding: 3px;
+  // background-color: red;
+  // border-radius: 40%;
 }
 
-.select-recipes-button{
-  margin-top: 5px;
-  margin-left: 35px;
+.delete-button:hover{
+  cursor: pointer;
 }
+//
+// .item-ul{
+//   margin-left: 0px;
+//   // font-size: 10px;
+// }
+
+// .selected-ingredient{
+//   background: lighten(grey,40%);
+//   border-radius: 10px;
+//   text-decoration: line-through;
+// }
+//
+// .unselected-ingredient{
+//   color: darken($smoothgrey, 20%);
+//   background: darken($greyblue, 10%);
+//   border-radius: 10px;
+//   padding-left:5px;
+//   padding-right:5px;
+// }
+//
+// .unselected-ingredient:hover{
+//   cursor: pointer; cursor: hand;
+// }
+// .selected-ingredient:hover{
+//   cursor: pointer; cursor: hand;
+// }
+//
+// .select-recipes-button{
+//   margin-top: 5px;
+//   margin-left: 35px;
+// }

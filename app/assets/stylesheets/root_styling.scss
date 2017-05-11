@@ -80,6 +80,10 @@ ul{
   background-color: darken($greyblue, 35%) ;
 }
 
+.hidden{
+  display: none;
+}
+
 // for testing out colors
 .peagreen{
   background-color: $peagreen;
