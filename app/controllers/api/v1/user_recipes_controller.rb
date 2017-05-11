@@ -68,7 +68,6 @@ class Api::V1::UserRecipesController < ApiController
     recipe.destroy
     # if recipe.owner= user
     # end
-    # binding.pry
-    render json: {message: "#{name} was deleted"}
+    render json: {message: "#{name} was deleted" }
   end
 end

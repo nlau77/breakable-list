@@ -6,7 +6,8 @@ class UserRecipes extends Component {
     super(props);
     this.state = {
       userCustomRecipes:[],
-      deleteClassName:"hidden"
+      deleteClassName:"hidden",
+      message:""
     }
     this.handleDeleteDisplay=this.handleDeleteDisplay.bind(this)
     this.handleDelete=this.handleDelete.bind(this)
@@ -20,6 +21,7 @@ class UserRecipes extends Component {
     }else{
       this.setState({ deleteClassName:"hidden"})
     }
+    this.setState({ message:"" })
   }
 
   handleDelete(id){
@@ -27,10 +29,12 @@ class UserRecipes extends Component {
     let recipeBody = {
       recipeId:id
     }
-    console.log(id)
     fetch(`/api/v1/user_recipes/${recipeId}`, { method:'DELETE', credentials: 'same-origin', body: JSON.stringify(recipeBody) })
-    .then((response)=>{
-      this.fetchRecipesList()    
+    .then((response) => response.json())
+    .then((responseBody)=>{
+      this.setState({ message:responseBody.message })
+      debugger;
+      this.fetchRecipesList()
     })
   }
 
@@ -55,23 +59,6 @@ class UserRecipes extends Component {
   }
   componentDidMount(){
     this.fetchRecipesList()
-    // fetch(`/api/v1/user_recipes`, {credentials: 'same-origin'})
-    //   .then(response =>{
-    //     if (response.ok){
-    //       return response;
-    //     }else {
-    //       let errorMessage = `${response.status} (${response.statusText})`,
-    //       error = new Error(errorMessage);
-    //       throw(error);
-    //     }
-    //   })
-    //   .then(response => response.json())
-    //   .then(body=> {
-    //     this.setState({
-    //       userCustomRecipes: body
-    //     })
-    //   })
-    //   .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
   render(){
     let userCustomRecipes
@@ -86,10 +73,17 @@ class UserRecipes extends Component {
         )
       })
 
+      let message;
+      if(this.state.message != ""){
+        message=
+          <div>{this.state.message}</div>
+      }
+
     return(
       <div className="row">
         <div className="text-center">
           <h3 className="title-header3"><u className="title-header">My Recipes</u></h3>
+          {message}
           <div>
             {userCustomRecipes}
           </div>
