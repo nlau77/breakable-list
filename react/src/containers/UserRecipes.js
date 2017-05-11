@@ -10,9 +10,10 @@ class UserRecipes extends Component {
     }
     this.handleDeleteDisplay=this.handleDeleteDisplay.bind(this)
     this.handleDelete=this.handleDelete.bind(this)
+    this.fetchRecipesList=this.fetchRecipesList.bind(this)
   }
 
-  handleDeleteDisplay(){
+  handleDeleteDisplay(event){
     console.log("hitting the button")
     if(this.state.deleteClassName==="hidden"){
       this.setState({ deleteClassName:"unhidden"})
@@ -22,12 +23,18 @@ class UserRecipes extends Component {
   }
 
   handleDelete(id){
-
+    let recipeId = id
+    let recipeBody = {
+      recipeId:id
+    }
     console.log(id)
-    // some post deleting function
+    fetch(`/api/v1/user_recipes/${recipeId}`, { method:'DELETE', credentials: 'same-origin', body: JSON.stringify(recipeBody) })
+    .then((response)=>{
+      this.fetchRecipesList()    
+    })
   }
 
-  componentDidMount(){
+  fetchRecipesList(){
     fetch(`/api/v1/user_recipes`, {credentials: 'same-origin'})
       .then(response =>{
         if (response.ok){
@@ -45,6 +52,26 @@ class UserRecipes extends Component {
         })
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`));
+  }
+  componentDidMount(){
+    this.fetchRecipesList()
+    // fetch(`/api/v1/user_recipes`, {credentials: 'same-origin'})
+    //   .then(response =>{
+    //     if (response.ok){
+    //       return response;
+    //     }else {
+    //       let errorMessage = `${response.status} (${response.statusText})`,
+    //       error = new Error(errorMessage);
+    //       throw(error);
+    //     }
+    //   })
+    //   .then(response => response.json())
+    //   .then(body=> {
+    //     this.setState({
+    //       userCustomRecipes: body
+    //     })
+    //   })
+    //   .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
   render(){
     let userCustomRecipes
@@ -70,7 +97,7 @@ class UserRecipes extends Component {
         <div className="row">
         </div>
         <div className="row">
-          <div className="small-6 small-offset-4 medium-6 medium-offset-5 columns">
+          <div className="small-5 small-centered small-offset-4 medium-6 medium-offset-5 columns">
             <span className="delete-recipes-button" onClick={this.handleDeleteDisplay}>Delete Recipes</span>
           </div>
         </div>

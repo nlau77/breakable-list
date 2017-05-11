@@ -113,8 +113,8 @@ $smoothgrey: #666666;
 
 .delete-recipes-button{
   border: solid 1px lighten($smoothgrey, 10%);
-  padding: 3px;
-  font-size: 20px;
+  padding: 5px 15px;
+  font-size: 15px;
   border-radius: 10px;
   color: lighten($smoothgrey, 10%);
 
@@ -122,8 +122,11 @@ $smoothgrey: #666666;
 
 .delete-recipes-button:hover{
   cursor: pointer;
-  background: lighten(red, 30%)
+  background: lighten(red, 30%);
+  // margin-left:20px;
 }
+
+  
 
 .delete-button{
   color:red;
