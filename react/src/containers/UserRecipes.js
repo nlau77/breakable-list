@@ -33,7 +33,6 @@ class UserRecipes extends Component {
     .then((response) => response.json())
     .then((responseBody)=>{
       this.setState({ message:responseBody.message })
-      debugger;
       this.fetchRecipesList()
     })
   }

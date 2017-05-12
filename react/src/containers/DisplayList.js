@@ -31,9 +31,6 @@ class DisplayList extends Component {
         this.setState({ selectedIngredients: updateSelectedIngredients})
       }
 
-    // console.log(this.state.selectedIngredients)
-
-    // console.log("click click")
   }
 
   componentDidMount(){
