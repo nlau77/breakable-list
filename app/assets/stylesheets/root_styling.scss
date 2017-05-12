@@ -46,7 +46,7 @@ body{
 
 @media only screen and (max-width: 450px) {
    .app-title{
-    font-size: 35px;
+    font-size: 25px;
       }
 }
 
@@ -83,6 +83,10 @@ ul{
   }
 }
 
+
+.top-bar-logout{
+  margin-top: 8px;
+}
 .button{
   border-radius: 10px;
   background-color: darken($greyblue, 15%);

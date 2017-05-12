@@ -41,7 +41,8 @@ class DisplayList extends Component {
       this.setState({
         list: responseData.list,
         ingredients: responseData.ingredients,
-        recipes: responseData.recipes
+        recipes: responseData.recipes,
+        selectedIngredients: []
       })
       // console.log("you got this far")
     })
