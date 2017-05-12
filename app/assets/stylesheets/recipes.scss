@@ -126,7 +126,13 @@ $smoothgrey: #666666;
   // margin-left:20px;
 }
 
-  
+@media only screen and (max-width: 450px) {
+  .delete-recipes-button{
+    padding-left: 20px;
+    margin-left: 10px;
+  }
+}
+
 
 .delete-button{
   color:red;
