@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-// import IngredientTile from '../components/IngredientTile'
 import IngredientListTile from '../components/IngredientListTile'
-// probably import some tile
+import UserListTile from '../components/UserListTile'
 
 class DisplayList extends Component {
   constructor(props){
@@ -16,6 +15,7 @@ class DisplayList extends Component {
       selectedIngredients:[]
     }
     this.handleClickIngredient=this.handleClickIngredient.bind(this)
+    this.handleDisplayNewList=this.handleDisplayNewList.bind(this)
   }
 
 
@@ -30,18 +30,32 @@ class DisplayList extends Component {
         updateSelectedIngredients.push(id)
         this.setState({ selectedIngredients: updateSelectedIngredients})
       }
+  }
 
+  handleDisplayNewList(id){
+    fetch(`/api/v1/user_lists/${id}`, {credentials: 'same-origin'})
+    .then((response) => response.json())
+    .then((responseData) =>{
+      // debugger
+      // console.log("it comes here")
+      this.setState({
+        list: responseData.list,
+        ingredients: responseData.ingredients,
+        recipes: responseData.recipes
+      })
+      // console.log("you got this far")
+    })
   }
 
   componentDidMount(){
-    fetch(`/api/v1/user_lists`, {credentials: 'same-origin'})
+    fetch(`/api/v1/user_lists/`, {credentials: 'same-origin'})
       .then((response) => response.json())
       .then((responseData) =>{
-        // console.log("it comes here")
         this.setState({
           list: responseData.list,
           ingredients: responseData.ingredients,
-          recipes: responseData.recipes
+          recipes: responseData.recipes,
+          oldLists: responseData.oldLists
         })
       })
   }
@@ -72,6 +86,16 @@ class DisplayList extends Component {
       )
     })
 
+    let oldLists = this.state.oldLists.map(list =>{
+      let handleListId = () => this.handleDisplayNewList(list.id)
+      return (
+        <UserListTile
+        key={list.id}
+        title={list.title}
+        handleListId={handleListId}
+        />
+      )
+    })
     return(
       <div className="rows">
         <h3 className="text-center title-header3"><u className="title-header">Grocery List</u></h3>
@@ -90,7 +114,9 @@ class DisplayList extends Component {
           </div>
           <div className="rows">
             <h5 className="list-header text-center">Previous Grocerylists</h5>
-            <p>5 newest user lists go here</p>
+            <div className="rows">
+              {oldLists}
+            </div>
           </div>
         </div>
       </div>

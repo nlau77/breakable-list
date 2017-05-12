@@ -31,5 +31,16 @@ $smoothgrey: #666666;
 
 .item-ul{
   margin-left: 0px;
-  // font-size: 10px;
+}
+
+.old-lists{
+  background: lighten($bluegreen, 5%);
+  color: darken($smoothgrey, 30%);
+  border-radius: 30px;
+  opacity: 0.75;
+}
+
+.old-lists:hover{
+  background: $bluegreen;
+  cursor: pointer;
 }
