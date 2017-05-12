@@ -45,7 +45,7 @@ class IngredientFormContainer extends Component {
 
   render(){
     return (
-      <div className="hidden">
+      <div className="">
         <form onSubmit={this.handleSubmit}>
           <div className="small-4 columns">
             <label>Amount:</label>

@@ -13,6 +13,7 @@ class Api::V1::UserRecipesController < ApiController
   end
 
   def show
+    # binding.pry
     if current_user.present?
       id=params[:id]
       @recipe= Recipe.find(id)
@@ -52,7 +53,21 @@ class Api::V1::UserRecipesController < ApiController
     # end
   end
 
-  def update
-    binding.pry
+  # def update
+  #   binding.pry
+  # end
+
+  def destroy
+    # binding.pry
+    id=params[:id]
+    # user=current_user
+    recipe=Recipe.find(id)
+    name=recipe.name
+    recipe.recipeingredients.destroy_all
+    recipe.instructions.destroy_all
+    recipe.destroy
+    # if recipe.owner= user
+    # end
+    render json: {message: "#{name} was deleted" }
   end
 end

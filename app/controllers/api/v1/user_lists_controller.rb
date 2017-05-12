@@ -2,24 +2,53 @@ class Api::V1::UserListsController < ApiController
   skip_before_action :verify_authenticity_token
 
   def index
+
+    # binding.pry
+    # body = request.body.read
+    # # parsed_list = JSON.parse(body)
+    # binding.pry
     user = current_user
     @newest_grocery_list = user.userlists.last
     @recipes = @newest_grocery_list.recipes
     @ingredients_list=[]
     @recipes.each do |recipe|
-      recipe.ingredients. each do |ingredient|
+      recipe.ingredients.each do |ingredient|
+        @ingredients_list << ingredient
+      end
+    end
+    if user.userlists.size < 6
+      # binding.pry
+      @old_lists = user.userlists.all
+    else
+      # binding.pry
+      @old_lists= user.userlists[-6..-2]
+    end
+    render json: {
+      ingredients: @ingredients_list,
+      list: @newest_grocery_list,
+      recipes: @recipes,
+      oldLists: @old_lists
+    }
+  end
+
+  def show
+    user = current_user
+    list_id = params[:id]
+    @grocery_list = user.userlists.find(list_id)
+    @recipes = @grocery_list.recipes
+    @ingredients_list=[]
+    @recipes.each do |recipe|
+      recipe.ingredients.each do |ingredient|
         @ingredients_list << ingredient
       end
     end
     render json: {
       ingredients: @ingredients_list,
-      list: @newest_grocery_list,
+      list: @grocery_list,
       recipes: @recipes
     }
-  end
 
-  def show
-    binding.pry
+    # binding.pry
   end
 
   def update
@@ -40,6 +69,7 @@ class Api::V1::UserListsController < ApiController
         list_title = "#{date} Grocery List"
       end
       newList = Userlist.create(title: list_title, user: user)
+
 
       recipe_ids.each do |recipe_id|
         recipe = Recipe.find(recipe_id)

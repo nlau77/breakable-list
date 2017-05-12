@@ -1,0 +1,46 @@
+$greyblue: #B4DEBE;
+$bluegreen: #0E8D94;
+$smoothgrey: #666666;
+
+
+.selected-ingredient{
+  background: lighten(grey,40%);
+  border-radius: 10px;
+  text-decoration: line-through;
+}
+
+.unselected-ingredient{
+  color: darken($smoothgrey, 20%);
+  background: darken($greyblue, 10%);
+  border-radius: 10px;
+  padding-left:5px;
+  padding-right:5px;
+}
+
+.unselected-ingredient:hover{
+  cursor: pointer; cursor: hand;
+}
+.selected-ingredient:hover{
+  cursor: pointer; cursor: hand;
+}
+
+.select-recipes-button{
+  margin-top: 5px;
+  margin-left: 35px;
+}
+
+.item-ul{
+  margin-left: 0px;
+}
+
+.old-lists{
+  background: lighten($bluegreen, 5%);
+  color: darken($smoothgrey, 30%);
+  border-radius: 30px;
+  opacity: 0.75;
+}
+
+.old-lists:hover{
+  background: $bluegreen;
+  cursor: pointer;
+}

@@ -5,11 +5,39 @@ class UserRecipes extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      userCustomRecipes:[]
+      userCustomRecipes:[],
+      deleteClassName:"hidden",
+      message:""
     }
+    this.handleDeleteDisplay=this.handleDeleteDisplay.bind(this)
+    this.handleDelete=this.handleDelete.bind(this)
+    this.fetchRecipesList=this.fetchRecipesList.bind(this)
   }
 
-  componentDidMount(){
+  handleDeleteDisplay(event){
+    console.log("hitting the button")
+    if(this.state.deleteClassName==="hidden"){
+      this.setState({ deleteClassName:"unhidden"})
+    }else{
+      this.setState({ deleteClassName:"hidden"})
+    }
+    this.setState({ message:"" })
+  }
+
+  handleDelete(id){
+    let recipeId = id
+    let recipeBody = {
+      recipeId:id
+    }
+    fetch(`/api/v1/user_recipes/${recipeId}`, { method:'DELETE', credentials: 'same-origin', body: JSON.stringify(recipeBody) })
+    .then((response) => response.json())
+    .then((responseBody)=>{
+      this.setState({ message:responseBody.message })
+      this.fetchRecipesList()
+    })
+  }
+
+  fetchRecipesList(){
     fetch(`/api/v1/user_recipes`, {credentials: 'same-origin'})
       .then(response =>{
         if (response.ok){
@@ -28,22 +56,42 @@ class UserRecipes extends Component {
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
+  componentDidMount(){
+    this.fetchRecipesList()
+  }
   render(){
     let userCustomRecipes
+    let deleteButtonClass=`${this.state.deleteClassName} delete-button`
       userCustomRecipes = this.state.userCustomRecipes.map(recipe =>{
+      let handleDelete = () => this.handleDelete(recipe.id)
         return (
           <div className="recipe-links small-12 large-3 medium-4 columns">
-            <p><Link className="front-recipe-links" to={`/user_recipe/${recipe.id}`}>{recipe.name}</Link></p>
+            <p><span onClick={handleDelete} className={deleteButtonClass}>x</span>
+            <Link className="front-recipe-links" to={`/user_recipe/${recipe.id}`}>{recipe.name}</Link></p>
           </div>
         )
       })
+
+      let message;
+      if(this.state.message != ""){
+        message=
+          <div>{this.state.message}</div>
+      }
 
     return(
       <div className="row">
         <div className="text-center">
           <h3 className="title-header3"><u className="title-header">My Recipes</u></h3>
+          {message}
           <div>
             {userCustomRecipes}
+          </div>
+        </div>
+        <div className="row">
+        </div>
+        <div className="row">
+          <div className="small-5 small-centered small-offset-4 medium-6 medium-offset-5 columns">
+            <span className="delete-recipes-button" onClick={this.handleDeleteDisplay}>Delete Recipes</span>
           </div>
         </div>
       </div>
