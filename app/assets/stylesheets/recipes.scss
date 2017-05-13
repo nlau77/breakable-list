@@ -58,9 +58,13 @@ $smoothgrey: #666666;
 .front-recipe-links{
   background-color: lighten($greyblue, 5%);
   border-radius: 30px;
-  padding-left: 25px;
-  padding-right: 25px;
-  padding-top: 5px;
+  // padding-left: 25px;
+  // padding-right: 25px;
+  // padding-left: 10px;
+  // padding-right: 10px;
+  // margin-left: 10px;
+  // margin-right: 10px;
+  // padding-top: 5px;
   padding-bottom: 5px;
   font-size: 20px;
 }
@@ -68,12 +72,17 @@ $smoothgrey: #666666;
 @media only screen and (max-width: 450px) {
    .front-recipe-links{
       font-size: 18px;
+      margin-left: 50px;
+      margin-right: 50px;
+      // padding-left: 10px;
+      // padding-right: 10px;
       }
 }
 
 
 .front-recipe-links:hover{
   background-color: lighten($greyblue, 0%);
+  // cursor: pointer;
 
 }
 .title-header{
@@ -151,7 +160,6 @@ $smoothgrey: #666666;
 .delete-recipes-button:hover{
   cursor: pointer;
   background: lighten(red, 30%);
-  // margin-left:20px;
 }
 
 @media only screen and (max-width: 450px) {

@@ -66,8 +66,11 @@ class UserRecipes extends Component {
       let handleDelete = () => this.handleDelete(recipe.id)
         return (
           <div className="recipe-links small-12 large-3 medium-4 columns">
-            <p><span onClick={handleDelete} className={deleteButtonClass}>x</span>
-            <Link className="front-recipe-links" to={`/user_recipe/${recipe.id}`}>{recipe.name}</Link></p>
+            <p className="front-recipe-links"><span onClick={handleDelete} className={deleteButtonClass}>x</span>
+              <Link to={`/user_recipe/${recipe.id}`}>
+                {recipe.name}
+              </Link>
+            </p>
           </div>
         )
       })
