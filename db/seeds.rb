@@ -75,7 +75,7 @@ user1= User.create(username: "Visitor", email: "user@test.com", password: "12345
 #     Instruction.create(step:"fourth step", recipe:chicken_pot_pie )
 #     Instruction.create(step:"fifth step", recipe:chicken_pot_pie )
 
-beef_and_brocolli = Recipe.create(name: "Beef and Brocolli", owner: user1)
+beef_and_brocolli = Recipe.create(name: "Beef and Broccoli", owner: user1)
   Recipeingredient.create(amount:"8 oz", recipe:beef_and_brocolli, ingredient: beef)
   Recipeingredient.create(amount:"2 cups", recipe:beef_and_brocolli, ingredient: broccoli)
   Recipeingredient.create(amount:"1 tbsp", recipe:beef_and_brocolli, ingredient: soy_sauce)
