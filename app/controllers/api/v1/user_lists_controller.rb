@@ -65,7 +65,7 @@ class Api::V1::UserListsController < ApiController
       # return some message
     else
       if list_title.strip == ""
-        date = Date.parse(Time.now.to_s).strftime("%d/%m")
+        date = Date.parse(Time.now.to_s).strftime("%m/%d")
         list_title = "#{date} Grocery List"
       end
       newList = Userlist.create(title: list_title, user: user)
