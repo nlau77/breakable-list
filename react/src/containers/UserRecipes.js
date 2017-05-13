@@ -79,9 +79,9 @@ class UserRecipes extends Component {
       }
 
     return(
-      <div className="row">
+      <div className="rows">
+        <h3 className="text-center title-header3"><u className="title-header">My Recipes</u></h3>
         <div className="text-center">
-          <h3 className="title-header3"><u className="title-header">My Recipes</u></h3>
           {message}
           <div>
             {userCustomRecipes}
@@ -90,7 +90,7 @@ class UserRecipes extends Component {
         <div className="row">
         </div>
         <div className="row">
-          <div className="small-5 small-centered small-offset-4 medium-6 medium-offset-5 columns">
+          <div className="small-6 small-centered small-offset-5 medium-6 medium-offset-5 columns">
             <span className="delete-recipes-button" onClick={this.handleDeleteDisplay}>Delete Recipes</span>
           </div>
         </div>

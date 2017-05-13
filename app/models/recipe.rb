@@ -7,6 +7,7 @@ class Recipe < ApplicationRecord
   has_many :instructions
 
   validates :name, presence: true
+  validates :name, length: {maximum: 35}
   # validates :instructions, presence: true
 
   has_many :grocerylists

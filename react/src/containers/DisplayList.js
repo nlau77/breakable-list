@@ -41,7 +41,8 @@ class DisplayList extends Component {
       this.setState({
         list: responseData.list,
         ingredients: responseData.ingredients,
-        recipes: responseData.recipes
+        recipes: responseData.recipes,
+        selectedIngredients: []
       })
       // console.log("you got this far")
     })
@@ -100,7 +101,8 @@ class DisplayList extends Component {
       <div className="rows">
         <h3 className="text-center title-header3"><u className="title-header">Grocery List</u></h3>
         <div className="columns small-12 medium-6">
-          <h5 className="list-header text-center">{this.state.list.title}</h5>
+          <h5 className="ingredients-list-header text-center">{this.state.list.title}</h5>
+          <p className="text-center grocerylist-subheader">Items to pick up:</p>
           <div className="rows">
             {ingredientsList}
           </div>

@@ -44,3 +44,30 @@ $smoothgrey: #666666;
   background: $bluegreen;
   cursor: pointer;
 }
+
+.list-title-form{
+  // margin-left: 400px;
+  padding-left: 0px;
+}
+
+.list-header{
+  border-bottom: 1px solid $greyblue;
+  // width: 10em;
+}
+
+.ingredients-list-header{
+  border-bottom: 1px solid $greyblue;
+  margin-bottom: 2px;
+}
+
+.grocerylist-subheader{
+  margin-bottom: 3px;
+  font-size: 15px;
+}
+
+.ingredient-list-div{
+  padding-left: 0px;
+}
+.ingredient-amount-div{
+  padding-right: 0px;
+}
