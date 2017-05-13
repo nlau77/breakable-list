@@ -11,6 +11,7 @@ Ingredient.destroy_all
 Recipeingredient.destroy_all
 Userlist.destroy_all
 Instruction.destroy_all
+Grocerylist.destroy_all
 
 
 beef=Ingredient.create(name:"beef")
@@ -57,7 +58,7 @@ white_wine=Ingredient.create(name:"white wine")
 shallots=Ingredient.create(name:"shallots")
 chicken_thigh=Ingredient.create(name:"chicken thighs")
 salt=Ingredient.create(name:"salt")
-vanilla_extract=Ingredient.create(name:"vanilla extrac")
+vanilla_extract=Ingredient.create(name:"vanilla extract")
 
 
 user1= User.create(username: "Visitor", email: "user@test.com", password: "123456")
@@ -103,7 +104,7 @@ curry_chicken=Recipe.create(name: "Curry Chicken", owner: user1)
   Instruction.create(step:"Bring to a boil and simmer for 30 minutes", recipe:curry_chicken )
   Instruction.create(step:"Stir in fish sauce and adjust with salt to taste", recipe:curry_chicken )
 
-stir_fry_broccoli=Recipe.create(name: "Lightly Stir-fried Broc", owner: user1)
+stir_fry_broccoli=Recipe.create(name: "Lightly Stir-fried Brocolli", owner: user1)
   Recipeingredient.create(amount:"3 lbs", recipe:stir_fry_broccoli, ingredient:broccoli)
   Recipeingredient.create(amount:"2 cloves", recipe:stir_fry_broccoli, ingredient:garlic)
   Recipeingredient.create(amount:"1 1tsb", recipe:stir_fry_broccoli, ingredient:canola_oil)
@@ -244,10 +245,32 @@ custard = Recipe.create(name: "Simple Custard", owner: user1)
   Instruction.create(step:"Cool for 30 minutes before placing the custard into the fridge", recipe:custard)
 
 
-# meat loaf
-# grilled cheese
-# crepes
 
-  # pizza dought
-# Userlist.create(title:"heres a list", user: user1)
-# Userlist.create(title:"another list", user: user1)
+list1=Userlist.create(title:"Desserts", user: user1)
+  Grocerylist.create(recipe:crepes, userlist:list1)
+  Grocerylist.create(recipe:custard, userlist:list1)
+
+list2=Userlist.create(title:"Breakfast items", user: user1)
+  Grocerylist.create(recipe:crepes, userlist:list2)
+  Grocerylist.create(recipe:scrambled_eggs, userlist:list2)
+  Grocerylist.create(recipe:grilled_cheese, userlist:list2)
+
+list3=Userlist.create(title:"Sunday Prep", user: user1)
+  Grocerylist.create(recipe:baked_chicken_thigh, userlist:list3)
+  Grocerylist.create(recipe:curry_chicken, userlist:list3)
+  Grocerylist.create(recipe:beef_and_brocolli, userlist:list3)
+  Grocerylist.create(recipe:meatball, userlist:list3)
+  Grocerylist.create(recipe:tofu_stew, userlist:list3)
+  Grocerylist.create(recipe:stir_fry_broccoli, userlist:list3)
+
+list4=Userlist.create(title:"Birthday Party", user: user1)
+  Grocerylist.create(recipe:pizza_dough, userlist:list4)
+  Grocerylist.create(recipe:shrimp_scampi, userlist:list4)
+  Grocerylist.create(recipe:meatball, userlist:list4)
+  Grocerylist.create(recipe:grilled_cheese, userlist:list4)
+
+list5=Userlist.create(title:"Thursday Night", user: user1)
+  Grocerylist.create(recipe:baked_chicken_thigh, userlist:list5)
+  Grocerylist.create(recipe:stir_fry_broccoli, userlist:list5)
+  Grocerylist.create(recipe:scrambled_eggs, userlist:list5)
+  Grocerylist.create(recipe:shrimp_scampi, userlist:list5)
