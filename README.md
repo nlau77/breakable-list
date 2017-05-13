@@ -4,25 +4,29 @@
 
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+#About Grocery Picker
+Grocery picker is an app built to help make cooking a little easier. Users can build
+a list of custom recipes. Users can then build a quick grocery list based off the recipes
+that they plan to prepare. The app is built to be mobile friendly so that it can be useful
+at the grocery store.  Users can check off items as they grab them with a simple
+tap.
 
-* Ruby version
+#Try out the app on heroku
+https://grocery-picker.herokuapp.com/
+Feel free to log in with `user@test.com/123456` to test out the site.
 
-* System dependencies
+#To set up the app on your machine
 
-* Configuration
+After downloading this app run in the terminal `bundle install`
+and then `npm install`.  
 
-* Database creation
+Then run the following:
+  `rake db:create
+  rake db:migrate
+  rake db:seed`
 
-* Database initialization
+This app requires running two terminals to work.
+Run `rails s` in one terminal and `npm start` in the other
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Visit localhost:3000 to view the site.
