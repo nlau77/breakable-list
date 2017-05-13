@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
+import { Link, browserHistory } from 'react-router';
 import RecipeForm from '../components/RecipeForm'
 
 class CreateRecipe extends Component {
@@ -48,7 +48,7 @@ class CreateRecipe extends Component {
       if(command.messages){
         this.setState({ messages: command.messages })
       }else {
-        window.location=`/user_recipe/${command.id}`
+        browserHistory.push(`/user_recipe/${command.id}`)
       }
     })
   }

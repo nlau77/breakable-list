@@ -1,5 +1,5 @@
 import React, { Component }  from 'react';
-import { Link } from 'react-router';
+import { Link, browserHistory } from 'react-router';
 import ListTile from '../components/ListTile'
 
 class ListContainer extends Component {
@@ -51,8 +51,7 @@ class ListContainer extends Component {
       if(command.messages){
         this.setState({ messages: command.messages })
       }else {
-        console.log("it got to here")
-        window.location=`/user_list`
+        browserHistory.push(`/user_list`)
       }
     })
   }
