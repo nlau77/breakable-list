@@ -52,12 +52,14 @@ $smoothgrey: #666666;
 
 .list-header{
   border-bottom: 1px solid $greyblue;
+  font-size: 28px;
   // width: 10em;
 }
 
 .ingredients-list-header{
   border-bottom: 1px solid $greyblue;
   margin-bottom: 2px;
+  font-size: 30px;
 }
 
 .grocerylist-subheader{
@@ -70,4 +72,21 @@ $smoothgrey: #666666;
 }
 .ingredient-amount-div{
   padding-right: 0px;
+}
+
+.grocery-list-font{
+  font-size: 20px;
+}
+.grocery-list-ingredient-font{
+  font-size: 20px;
+}
+
+
+@media only screen and (max-width: 450px) {
+   .grocery-list-ingredient-font {
+      font-size: 18px;
+    }
+    .grocery-list-font{
+      font-size: 18px;
+    }
 }
