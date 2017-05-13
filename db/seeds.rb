@@ -160,7 +160,7 @@ pizza_dough = Recipe.create(name: "Pizza Dough", owner: user1)
   Recipeingredient.create(amount:"1 tsp", ingredient:salt,recipe:pizza_dough )
 
   Instruction.create(step:"bloom yeast in 2 cups of water with sugar for 10 minutes", recipe:pizza_dough)
-  Instruction.create(step:"add olive oil, salt and slowly mix in flour", recipe:pizza_dough)
+  Instruction.create(step:"add olive oil, salt, and slowly mix in flour", recipe:pizza_dough)
   Instruction.create(step:"knead dough for 20 minutes and let it rise for an hour", recipe:pizza_dough)
   Instruction.create(step:"use right away or store in the fridge", recipe:pizza_dough)
 
