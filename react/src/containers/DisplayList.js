@@ -103,20 +103,20 @@ class DisplayList extends Component {
         <div className="columns small-12 medium-6">
           <h5 className="ingredients-list-header text-center">{this.state.list.title}</h5>
           <p className="text-center grocerylist-subheader">Items to pick up:</p>
-          <div className="rows">
+          <div className="rows grocery-list-ingredient-font">
             {ingredientsList}
           </div>
         </div>
         <div className=" columns small-12 medium-6">
           <h5 className="list-header text-center">Selected Recipes</h5>
-          <div className="rows">
+          <div className="rows grocery-list-font">
             {selectedRecipes}
           </div>
           <div className="row">
           </div>
           <div className="rows">
             <h5 className="list-header text-center">Previous Grocerylists</h5>
-            <div className="rows">
+            <div className="rows grocery-list-font">
               {oldLists}
             </div>
           </div>

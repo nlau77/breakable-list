@@ -1,6 +1,14 @@
 .layout-header{
   margin-bottom: 5px;
+  font-size: 25px
 }
+
+@media only screen and (max-width: 450px) {
+   .layout-header{
+      font-size: 18px;
+      }
+}
+
 .layout-bar {
   margin-left: 3em;
   margin-right: 3em;
@@ -25,7 +33,6 @@
   background-size: cover;
   // background-blend-mode: screen;
   // zoom: 10%;
-  // background-repeat:none;
 }
 
 

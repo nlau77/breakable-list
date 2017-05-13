@@ -72,6 +72,17 @@ a {
 
 ul{
   list-style: none;
+  li{
+    font-size: 18px;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  ul{
+   li {
+    font-size: 16px;
+      }
+    }
 }
 
 .devise-background{
@@ -104,21 +115,4 @@ ul{
 
 .hidden{
   display: none;
-}
-
-// for testing out colors
-.peagreen{
-  background-color: $peagreen;
-}
-.off-white{
-  background-color: $offwhite;
-}
-.grey-blue{
-  background-color: $greyblue;
-}
-.smooth-grey{
-  background-color:$smoothgrey;
-}
-.light-green{
-  background-color:$lightgreen;
 }
