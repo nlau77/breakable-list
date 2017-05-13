@@ -102,7 +102,7 @@ class ListContainer extends Component {
       <div>
         <div className="rows">
           <div className="text-center">
-            <h3 className="title-header3"><u className="select-recipes-header">Select Your Recipes</u></h3>
+            <h3 className="title-header3"><u className="select-recipes-header">Select Recipes</u></h3>
               {userRecipes}
           </div>
         </div>
