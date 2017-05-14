@@ -15,7 +15,6 @@ class UserRecipes extends Component {
   }
 
   handleDeleteDisplay(event){
-    console.log("hitting the button")
     if(this.state.deleteClassName==="hidden"){
       this.setState({ deleteClassName:"unhidden"})
     }else{

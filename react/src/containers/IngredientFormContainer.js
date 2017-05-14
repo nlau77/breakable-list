@@ -40,7 +40,6 @@ class IngredientFormContainer extends Component {
       })
       this.props.fetchRecipeInfo()
     })
-    console.log("you hit the submit button")
   }
 
   render(){
