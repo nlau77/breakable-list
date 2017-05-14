@@ -16,7 +16,6 @@ class ListContainer extends Component {
   }
 
   handleClickRecipe(id){
-    console.log("selected id: " + id)
     let updateSelectedRecipes = this.state.selectedRecipes
       if(updateSelectedRecipes.includes(id)){
         let indexOfItem = updateSelectedRecipes.indexOf(id)
@@ -26,14 +25,11 @@ class ListContainer extends Component {
         updateSelectedRecipes.push(id)
         this.setState({ selectedRecipes: updateSelectedRecipes})
       }
-
-    // console.log(this.state.selectedRecipes)
   }
 
   handleTitleChange(event){
     let newTitle= event.target.value
     this.setState({ listTitle: newTitle})
-    console.log(this.state.listTitle)
   }
 
   handleSaveList(event){

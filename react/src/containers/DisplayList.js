@@ -20,7 +20,6 @@ class DisplayList extends Component {
 
 
   handleClickIngredient(id){
-    // console.log("selected id: " + id)
     let updateSelectedIngredients = this.state.selectedIngredients
       if(updateSelectedIngredients.includes(id)){
         let indexOfItem = updateSelectedIngredients.indexOf(id)
@@ -36,15 +35,12 @@ class DisplayList extends Component {
     fetch(`/api/v1/user_lists/${id}`, {credentials: 'same-origin'})
     .then((response) => response.json())
     .then((responseData) =>{
-      // debugger
-      // console.log("it comes here")
       this.setState({
         list: responseData.list,
         ingredients: responseData.ingredients,
         recipes: responseData.recipes,
         selectedIngredients: []
       })
-      // console.log("you got this far")
     })
   }
 

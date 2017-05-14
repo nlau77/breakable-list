@@ -18,10 +18,10 @@ class Api::V1::UserListsController < ApiController
     end
     if user.userlists.size < 6
       # binding.pry
-      @old_lists = user.userlists.all
+      @old_lists = user.userlists.all.order(created_at: :desc)
     else
       # binding.pry
-      @old_lists= user.userlists[-6..-2]
+      @old_lists= user.userlists.order(created_at: :desc)[1..5]
     end
     render json: {
       ingredients: @ingredients_list,
