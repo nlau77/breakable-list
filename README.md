@@ -6,6 +6,7 @@
 
 
 #About Grocery Picker
+
 Grocery picker is an app built to help make cooking a little easier. Users can build
 a list of custom recipes. Users can then build a quick grocery list based off the recipes
 that they plan to prepare. The app is built to be mobile friendly so that it can be useful
@@ -13,6 +14,7 @@ at the grocery store.  Users can check off items as they grab them with a simple
 tap.
 
 #Try out the app on heroku
+
 https://grocery-picker.herokuapp.com/
 Feel free to log in with `user@test.com/123456` to test out the site.
 
