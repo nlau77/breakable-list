@@ -3,15 +3,6 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root("static_pages#index")
 
-  resources :users, only: [:show]
-
-  # resources :groceries
-  # resources :users do
-  #   # resources :recipes
-  # end
-
-  # resources :recipes
-
   namespace :api do
     namespace :v1 do
       resources :user_recipes, only: [:index, :show, :new, :create, :update, :destroy]
@@ -20,7 +11,6 @@ Rails.application.routes.draw do
       resources :instructions, only: [:create, :update, :delete]
     end
   end
-
 
     get '*path', to: 'static_pages#index'
 end
