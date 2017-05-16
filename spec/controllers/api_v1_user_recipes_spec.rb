@@ -64,5 +64,14 @@ RSpec.describe Api::V1::UserRecipesController, type: :controller do
   #   expect(response.status).to eq 200
   #   end
   # end
+  describe "DELETE #destroy" do
 
+    it "Deletes the recipe from the database" do
+      sign_in(@user)
+      get :destroy, params: { id: @recipe.id }
+      expect(response.status).to eq 200
+      expect(json_parsed_response["message"]).to eq ("#{@recipe.name} was deleted")
+    end
+
+  end
 end

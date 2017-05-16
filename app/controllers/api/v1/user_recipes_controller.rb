@@ -56,10 +56,12 @@ class Api::V1::UserRecipesController < ApiController
     id=params[:id]
     # user=current_user
     recipe=Recipe.find(id)
-    name=recipe.name
-    recipe.recipeingredients.destroy_all
-    recipe.instructions.destroy_all
-    recipe.destroy
+    if recipe.owner = current_user
+      name=recipe.name
+      recipe.recipeingredients.destroy_all
+      recipe.instructions.destroy_all
+      recipe.destroy
+    end
     # if recipe.owner= user
     # end
     render json: {message: "#{name} was deleted" }
