@@ -38,32 +38,21 @@ class Api::V1::UserRecipesController < ApiController
       recipe=Recipe.new(name: name)
       recipe.owner=current_user
         if recipe.save
-
           @recipe=recipe
           render json: @recipe
         else
           render json: { messages: recipe.errors.full_messages }
         end
-    # end
   end
 
-  # def update
-  #   binding.pry
-  # end
-
   def destroy
-    # binding.pry
     id=params[:id]
-    # user=current_user
     recipe=Recipe.find(id)
-    if recipe.owner = current_user
       name=recipe.name
       recipe.recipeingredients.destroy_all
       recipe.instructions.destroy_all
       recipe.destroy
-    end
-    # if recipe.owner= user
-    # end
     render json: {message: "#{name} was deleted" }
   end
+
 end
