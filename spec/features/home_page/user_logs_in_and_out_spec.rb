@@ -16,7 +16,7 @@ feature "User logs in to an account" do
 
   scenario "User signs out" do
     user2=User.create(username:"Bob",email:"test@gmail.com",password:"123456")
-    login_as(user2, :scope => :user)
+    login_as(user2, scope: :user)
     visit root_path
     click_link "Log Out"
     expect(page).to have_content "Please log in first!"
