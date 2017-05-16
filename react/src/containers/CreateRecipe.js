@@ -22,16 +22,6 @@ class CreateRecipe extends Component {
       this.setState({ name: newName})
   }
 
-  // handleInstructionsChange(event){
-  //     let newInstructions = event.target.value
-  //     this.setState({ instructions: newInstructions})
-  // }
-  //
-  // handleIngredientsChange(event){
-  //     let newIngredients = event.target.value
-  //     this.setState({ ingredients: newIngredients})
-  // }
-
   handleSubmit(event){
     event.preventDefault()
     let recipeBody = {
