@@ -2,18 +2,12 @@ class Api::V1::UserRecipesController < ApiController
   skip_before_action :verify_authenticity_token, only: [:create, :update]
 
   def index
-    if current_user.present?
       user= current_user
       @user_custom_recipes=user.custom_recipes.order(name: :asc)
       render json: @user_custom_recipes
-    else
-      @recipes= Recipe.all
-      render json: @recipes
-    end
   end
 
   def show
-    # binding.pry
     if current_user.present?
       id=params[:id]
       @recipe= Recipe.find(id)
@@ -62,10 +56,12 @@ class Api::V1::UserRecipesController < ApiController
     id=params[:id]
     # user=current_user
     recipe=Recipe.find(id)
-    name=recipe.name
-    recipe.recipeingredients.destroy_all
-    recipe.instructions.destroy_all
-    recipe.destroy
+    if recipe.owner = current_user
+      name=recipe.name
+      recipe.recipeingredients.destroy_all
+      recipe.instructions.destroy_all
+      recipe.destroy
+    end
     # if recipe.owner= user
     # end
     render json: {message: "#{name} was deleted" }

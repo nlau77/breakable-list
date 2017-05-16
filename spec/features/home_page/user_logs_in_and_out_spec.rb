@@ -11,16 +11,15 @@ feature "User logs in to an account" do
     click_button "Log in"
     expect(page).to have_content user.username
     expect(page).to have_link "Log Out"
-  
+
   end
 
-  # scenario "User signs out" do
-  # getting no defined method for login_as
-    # user2=User.create(username:"Bob",email:"test@gmail.com",password:"123456")
-    # login_as(user2, :scope => :user)
-  #   # visit roth_path
-  #   # click_link "Log Out"
-  #   # expect(page).to have_content "Please log in first!"
-  # end
+  scenario "User signs out" do
+    user2=User.create(username:"Bob",email:"test@gmail.com",password:"123456")
+    login_as(user2, scope: :user)
+    visit root_path
+    click_link "Log Out"
+    expect(page).to have_content "Please log in first!"
+  end
 
 end
