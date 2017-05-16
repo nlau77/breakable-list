@@ -2,11 +2,6 @@ class Api::V1::UserListsController < ApiController
   skip_before_action :verify_authenticity_token
 
   def index
-
-    # binding.pry
-    # body = request.body.read
-    # # parsed_list = JSON.parse(body)
-    # binding.pry
     user = current_user
     @newest_grocery_list = user.userlists.last
     @recipes = @newest_grocery_list.recipes
@@ -17,10 +12,8 @@ class Api::V1::UserListsController < ApiController
       end
     end
     if user.userlists.size < 6
-      # binding.pry
       @old_lists = user.userlists.all.order(created_at: :desc)
     else
-      # binding.pry
       @old_lists= user.userlists.order(created_at: :desc)[1..5]
     end
     render json: {
@@ -48,11 +41,6 @@ class Api::V1::UserListsController < ApiController
       recipes: @recipes
     }
 
-    # binding.pry
-  end
-
-  def update
-    binding.pry
   end
 
   def create

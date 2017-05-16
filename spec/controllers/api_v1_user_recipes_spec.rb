@@ -53,7 +53,7 @@ RSpec.describe Api::V1::UserRecipesController, type: :controller do
 
   # describe "POST #create" do
   # # TODO figure out what is causing the parsing error in the body in test environment
-  # maybe problem with how the body is being parsed
+  # # maybe problem with how the body is being parsed
   #   let!(:correct_post_params) { {name: "CheeseFries", instructions:"as", ingredients:"asdf" } }
   #   let!(:incorrect_post_params) { { name: "" } }
   #
@@ -64,6 +64,7 @@ RSpec.describe Api::V1::UserRecipesController, type: :controller do
   #   expect(response.status).to eq 200
   #   end
   # end
+
   describe "DELETE #destroy" do
 
     it "Deletes the recipe from the database" do

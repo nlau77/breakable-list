@@ -1,11 +1,11 @@
 import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import GetUserId from './containers/GetUserId'
+import App from './containers/App'
 
 $(function() {
   ReactDOM.render(
-    <GetUserId />,
+    <App />,
     document.getElementById('app')
   );
 });
