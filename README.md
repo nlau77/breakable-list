@@ -5,7 +5,7 @@
 # Grocery Picker
 
 
-##About Grocery Picker
+##About
 
 Grocery picker is an app built to help make cooking a little easier. Users can build
 a list of custom recipes. Users can then build a quick grocery list based off the recipes
