@@ -2,18 +2,18 @@
 ![Code Climate](https://codeclimate.com/github/nlau77/breakable-list.png)
 ![Coverage Status](https://coveralls.io/repos/nlau77/breakable-list/badge.png)
 
-# README
+# Grocery Picker
 
 
-#About Grocery Picker
+##About
 
 Grocery picker is an app built to help make cooking a little easier. Users can build
 a list of custom recipes. Users can then build a quick grocery list based off the recipes
 that they plan to prepare. The app is built to be mobile friendly so that it can be useful
-at the grocery store.  Users can check off items as they grab them with a simple
+at the grocery store. Users can check off items as they grab them with a simple
 tap.
 
-#Try out the app on heroku
+##Try out the app on heroku
 
 https://grocery-picker.herokuapp.com/
 Feel free to log in with `user@test.com/123456` to test out the site.
@@ -32,3 +32,9 @@ This app requires running two terminals to work.
 Run `rails s` in one terminal and `npm start` in the other
 
 Visit localhost:3000 to view the site.
+
+## Incoming Features
+
+-Option to search for other users recipes and save it
+
+-An option for a detailed grocery list which will calculate the total amount of ingredients required.
