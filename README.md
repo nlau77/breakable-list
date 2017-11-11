@@ -16,7 +16,7 @@ tap.
 https://grocery-picker.herokuapp.com/
 Feel free to log in with `user@test.com/123456` to test out the site.
 
-## To set up the app on your machine
+## Set up app on your machine
 
 After downloading this app run in the terminal `bundle install`
 and then `npm install`.  
@@ -27,16 +27,16 @@ Then run the following:
   rake db:seed`
 
 This app requires running two terminals to work.
-Run `rails s` in one terminal and `npm start` in the other
+Run `rails s` in one terminal and `npm start` in the other.
+
+Visit localhost:3000 to view.
 
 Run `rake` to run tests for Rails.
-
-Visit localhost:3000 to view the site.
 
 ## Incoming Features
 
 -Option to search for other users recipes and save it
 
--An option for a detailed grocery list which will calculate the total amount of ingredients required.
+-An option for a detailed grocery list which will calculate the total amount of ingredients required
 
 -Jasmine and Enzyme Testing
